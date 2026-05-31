@@ -340,6 +340,50 @@ footer{background:var(--primary);padding:52px 0 28px}
  /* Guided CTA banner */
  .guided-cta{background:var(--accent-soft);border:1.5px solid rgba(37,99,235,0.2);border-radius:var(--radius-lg);padding:14px 18px;display:flex;align-items:center;gap:12px;margin-bottom:12px}
 
+ 
+ /* ─ RETURN VISITOR PANEL ─ */
+ .welcome-back{background:var(--white);border-bottom:1px solid var(--border);padding:18px 28px;display:none;align-items:center;gap:16px;flex-wrap:wrap}
+ .welcome-back.show{display:flex}
+ .wb-greeting{font-size:16px;font-weight:800;color:var(--primary);letter-spacing:-0.3px}
+ .wb-sub{font-size:13px;color:var(--text-3)}
+ .wb-stats{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap}
+ .wb-stat{text-align:center;padding:6px 14px;background:var(--bg);border-radius:9px;border:1px solid var(--border)}
+ .wb-stat-num{font-size:18px;font-weight:900;color:var(--primary);letter-spacing:-0.5px}
+ .wb-stat-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-4);margin-top:1px}
+
+ /* ─ UPCOMING RELEASES ─ */
+ .release-card{background:var(--white);border-radius:var(--radius-xl);border:1px solid var(--border-soft);padding:18px 20px;display:flex;align-items:flex-start;gap:14px;transition:var(--transition)}
+ .release-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
+ .release-date-box{background:var(--primary);border-radius:var(--radius);padding:10px 12px;text-align:center;flex-shrink:0;min-width:52px}
+ .release-day{font-size:22px;font-weight:900;color:#fff;line-height:1;letter-spacing:-0.5px}
+ .release-month{font-size:9px;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+ .release-body{flex:1}
+ .release-name{font-size:15px;font-weight:800;color:var(--primary);margin-bottom:3px;letter-spacing:-0.2px}
+ .release-detail{font-size:12px;color:var(--text-3);margin-bottom:8px}
+ .release-notify{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--accent);cursor:pointer;background:none;border:1px solid rgba(37,99,235,0.25);border-radius:6px;padding:4px 10px;font-family:'Inter',sans-serif;transition:var(--transition)}
+ .release-notify:hover{background:var(--accent-soft)}
+
+ /* ─ JOURNEY STATUS ─ */
+ .jstatus-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border-soft)}
+ .jstatus-item:last-child{border-bottom:none}
+ .jstatus-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+ .jstatus-active{background:var(--success)}
+ .jstatus-pending{background:var(--border)}
+ .jstatus-label{font-size:13px;color:var(--text-2);font-weight:500;flex:1}
+ .jstatus-time{font-size:11px;color:var(--text-4)}
+
+ /* ─ BOOKING ─ */
+ .booking-panel{background:var(--white);border-radius:var(--radius-xl);border:1.5px solid var(--warm-border);padding:24px;margin-top:8px}
+ .booking-title{font-size:16px;font-weight:800;color:var(--primary);letter-spacing:-0.3px;margin-bottom:4px}
+ .booking-sub{font-size:13px;color:var(--text-3);margin-bottom:16px}
+ .booking-consultants{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+ .bc-item{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--bg);border-radius:var(--radius);cursor:pointer;transition:var(--transition);border:1.5px solid transparent}
+ .bc-item:hover{border-color:var(--accent);background:var(--accent-soft)}
+ .bc-avatar{width:38px;height:38px;border-radius:50%;background:var(--primary-mid);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;flex-shrink:0}
+ .bc-name{font-size:13px;font-weight:700;color:var(--primary)}
+ .bc-role{font-size:11px;color:var(--text-3)}
+ .bc-avail{font-size:11px;color:var(--success);font-weight:600;margin-left:auto}
+
  @media(max-width:1024px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}.ep-grid{grid-template-columns:1fr}.ep-right{border-left:none;border-top:1px solid var(--border)}}
 @media(max-width:768px){.hero-content,.g2{grid-template-columns:1fr;gap:28px}.hero-card{display:none}.nav-link{display:none}.hamburger{display:flex}.container{padding:0 16px}.section{padding:60px 0}.g3{grid-template-columns:1fr}.dev-grid{grid-template-columns:1fr}.dash-tabs{flex-wrap:wrap}.ep-tabs{padding:0 16px}}
 @media(max-width:480px){.hero-cta-row{flex-direction:column}.hero-h1{font-size:32px}.g4{grid-template-columns:1fr}.filter-bar{flex-direction:column}}
@@ -360,6 +404,16 @@ footer{background:var(--primary);padding:52px 0 28px}
   <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
  </div>
 </nav>
+
+<!-- WELCOME BACK PANEL (shown to returning users) -->
+<div class="welcome-back" id="welcomeBack" style="position:sticky;top:64px;z-index:999">
+ <div>
+  <div class="wb-greeting" id="wbGreeting">Welcome back 👋</div>
+  <div class="wb-sub" id="wbSub">Continue where you left off</div>
+ </div>
+ <div class="wb-stats" id="wbStats"></div>
+ <button class="btn btn-primary btn-sm" onclick="openDashboard()">✦ Open Opportunity Centre →</button>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -403,6 +457,20 @@ footer{background:var(--primary);padding:52px 0 28px}
 <!-- FAST MOVER -->
 <section style="padding:28px 0;background:var(--white)">
  <div class="container"><div class="fm-banner"><span style="font-size:34px">🚀</span><div style="flex:1"><div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:5px">Limited Time Offer</div><div style="font-size:19px;font-weight:900;color:#fff;letter-spacing:-0.3px;margin-bottom:3px">Fast Mover Upgrade Credit — Sign within 30 days</div><div style="font-size:13px;color:rgba(255,255,255,0.8)">$10,000 in builder upgrades <em>or</em> $5,000 cashback on settlement. All participating estates.</div></div><a href="#estates" class="btn" style="background:#fff;color:var(--primary);font-weight:800;flex-shrink:0">Browse Estates →</a></div></div>
+</section>
+
+<!-- UPCOMING RELEASES -->
+<section id="upcoming-releases" class="section-sm" style="background:var(--white);border-top:1px solid var(--border)">
+ <div class="container">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px">
+   <div>
+    <span class="section-label">Coming Up</span>
+    <h2 class="section-title" style="font-size:clamp(22px,3vw,32px)">Upcoming Releases & Events</h2>
+   </div>
+   <div id="releaseNotifyCount" style="font-size:13px;color:var(--text-3)"></div>
+  </div>
+  <div class="g3" id="releasesGrid"></div>
+ </div>
 </section>
 
 <!-- ESTATES -->
@@ -661,7 +729,11 @@ function init(){
   renderTesti();
   renderPartners();
   renderSamplePkg();
+  renderUpcomingReleases();
+  renderActivityFeedSeeded();
   updateNav();
+  initReturnVisitor();
+  initDeepLink();
   initObs();
   // Fix consultant strip template issue
   var cs=document.querySelector('.con-strip');
@@ -867,7 +939,8 @@ function switchDashTab(tab,el){
         +'<img src="img/'+s.id+'.jpg" alt="'+esc(s.name)+'" class="rec-card-img" onerror="this.src=\'img/oakland.jpg\'">'
         +'<div class="rec-card-body"><div class="rec-card-name">'+esc(s.name)+'</div>'+(s.price>0?'<div class="rec-card-price">From '+fmt(s.price)+'</div>':'')+'<div style="font-size:11px;color:var(--text-3);margin-top:3px">'+(p?esc(p.suburb)+', '+esc(p.region):esc(s.name))+'</div></div></div>';
     }).join('');
-    c.innerHTML='<div class="dash-section-title">Saved Estates ('+NHA.saved.length+')</div><div class="g3" style="margin-bottom:28px">'+grid+'</div>';
+    c.innerHTML='<div class="dash-section-title">Saved Estates ('+NHA.saved.length+')</div><div class="g3" style="margin-bottom:28px">'+grid+'</div>'
+      +'<div id="exportArea" style="background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius-xl);padding:20px;margin-top:4px;display:flex;align-items:center;gap:12px;flex-wrap:wrap"><div style="flex:1"><div style="font-size:14px;font-weight:700;color:var(--primary);margin-bottom:3px">\uD83D\uDCE7 Access on another device</div><div style="font-size:12px;color:var(--text-3)">Email your saved opportunities and estates to yourself to view on any device.</div></div><div style="display:flex;gap:8px;align-items:center"><input type="email" id="exportEmail" placeholder="your@email.com" class="fi-text" style="font-size:13px;padding:9px 12px;min-width:220px"><button class="btn btn-primary btn-sm" onclick="emailMyOpportunities()">Email \u2192</button></div></div>';
   }
   else if(tab==='packages'){
     if(!NHA.packages.length){c.innerHTML='<div class="dash-section-title">My Packages</div><div class="dash-empty"><div class="dash-empty-icon">📦</div><div style="font-size:16px;font-weight:700;color:var(--text-2);margin-bottom:6px">No packages built yet</div><div style="font-size:14px;margin-bottom:16px">Open an estate and use the package builder to create your first package.</div><a href="#estates" class="btn btn-primary btn-sm" onclick="closeDashboard()">Explore Estates →</a></div>';return;}
@@ -969,6 +1042,9 @@ function switchEpTab(tab,el){
     requestAnimationFrame(()=>{tc.querySelectorAll('.li-bar-fill').forEach(el=>{el.style.width=el.getAttribute('data-w');});});
   }
   else if(tab==='investment'){
+    var unlocked=getUnlockedFeatures();
+    if(!unlocked.investmentIntel){tc.innerHTML='<div class="ep-tab-pane active"><div style="text-align:center;padding:48px 20px"><div style="font-size:40px;margin-bottom:14px">\uD83D\uDD12</div><div style="font-size:16px;font-weight:700;color:var(--text-2);margin-bottom:8px">Investment Intelligence</div><div style="font-size:13px;color:var(--text-3);margin-bottom:16px">Build a package to unlock investment metrics for this estate.</div><button class="btn btn-primary btn-sm" onclick="selectLot(10)">Start Building →</button></div></div>';return;}
+    
     var total=p.minPrice>0?p.minPrice+CHEAPEST_BUILD:649500;
     var weekly=Math.round(total*0.95*0.063/52);
     var rent=Math.round(total*0.04/52);
@@ -1024,7 +1100,7 @@ function renderEpRight(){
   var premDesigns=DESIGNS.filter(d=>BUILDERS.find(b=>b.name===d.builder&&b.tierGroup==='premium')).slice(0,8);
   right.innerHTML='<div class="pkg-right">'
     +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><div class="pkg-right-title" style="margin-bottom:0">Create an Opportunity</div><span style="font-size:11px;background:var(--accent-soft);color:var(--accent);border:1px solid rgba(37,99,235,0.2);border-radius:10px;padding:2px 8px;font-weight:700">New</span></div>'
-    +'<div style="font-size:13px;color:var(--text-3);margin-bottom:18px">Select a lot width and home design to see your complete package.</div>'
+    +'<div style="font-size:13px;color:var(--text-3);margin-bottom:18px">Select a lot width and home design to create your complete opportunity.</div>'
     +'<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-4);margin-bottom:8px">Lot Width</div>'
     +'<div class="pkg-pills" id="pkgLotPills">'
     +frontages.map(f=>'<button class="pkg-pill" data-f="'+f+'" onclick="selectLot('+f+')">'+f+'m</button>').join('')
@@ -1040,6 +1116,7 @@ function renderEpRight(){
     +'<div id="pkgInvestRows"></div>'
     +'</div>'
     +'<div id="ctxCta" style="margin-top:8px"></div>'
+    +'<div id="bookingPanel" style="margin-top:8px">' + renderBookingPanel() + '</div>'
     +'</div>';
 }
 function selectLot(f){
@@ -1240,7 +1317,6 @@ function renderOppCard(opp) {
     + '<button class="btn btn-outline btn-sm" onclick="shareOpportunity(\x27'+opp.id+'\x27)">\u2197 Share</button>'
     + '<button class="btn-icon-sm" onclick="deleteOpportunity(\x27'+opp.id+'\x27)" title="Delete" style="margin-left:auto;color:var(--danger);font-size:14px">\u{1F5D1}</button>'
     + '</div>'
-    + '</div>'; '</div>'
     + '</div>';
 }
 
@@ -1332,6 +1408,254 @@ function renderOppCompare() {
     + '<div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">'
     + opps.map(function(o){return '<button class="btn btn-primary btn-sm" onclick="openEstate(\x27'+o.estate.id+'\x27)">View '+esc(o.estate.name)+' →</button>';}).join('')
     + '</div>';
+}
+
+
+
+// ─── FIX 4: PERSONALISED RETURN LANDING ──────────────────────────────────────
+function initReturnVisitor() {
+  var hasData = NHA.saved.length > 0 || NHA.opportunities.length > 0;
+  var wb = document.getElementById('welcomeBack');
+  if(!wb || !hasData) return;
+  wb.classList.add('show');
+  var greeting = document.getElementById('wbGreeting');
+  var sub = document.getElementById('wbSub');
+  var stats = document.getElementById('wbStats');
+  if(greeting) greeting.textContent = NHA.opportunities.length > 0 ? 'Welcome back \u2014 your opportunities are ready.' : 'Welcome back \u2014 you have saved estates.';
+  if(sub) sub.textContent = NHA.opportunities.length > 0 ? 'You have ' + NHA.opportunities.length + ' active opportunity' + (NHA.opportunities.length>1?'s':'') + '. Compare, share or speak to a consultant.' : 'Pick up where you left off. Build your first opportunity.';
+  if(stats) {
+    var items = [];
+    if(NHA.opportunities.length) items.push({num:NHA.opportunities.length, label:'Opportunities'});
+    if(NHA.saved.length) items.push({num:NHA.saved.length, label:'Saved'});
+    if(NHA.compare.length) items.push({num:NHA.compare.length, label:'In Compare'});
+    stats.innerHTML = items.map(function(i){ return '<div class="wb-stat"><div class="wb-stat-num">'+i.num+'</div><div class="wb-stat-label">'+i.label+'</div></div>'; }).join('');
+  }
+  // If hero is visible and user has data, swap CTA
+  var heroCta = document.querySelector('.hero-cta-row');
+  if(heroCta && hasData) {
+    heroCta.innerHTML = '<button class="btn btn-primary btn-lg" onclick="openDashboard()">\u2746 Continue Your Journey \u2192</button>'
+      + '<a href="#estates" class="btn btn-outline btn-lg">Explore Estates</a>';
+  }
+}
+
+// ─── FIX 2: EMAIL MY OPPORTUNITIES (cross-device bridge) ─────────────────────
+function emailMyOpportunities() {
+  var emailEl = document.getElementById('exportEmail');
+  var email = emailEl ? emailEl.value.trim() : '';
+  if(!email || email.indexOf('@') < 1) { if(emailEl) emailEl.style.borderColor='#ef4444'; return; }
+  var oppSummaries = NHA.opportunities.map(function(o,i){
+    return (i+1) + '. ' + o.estate.name + ' | ' + o.lot.frontage + 'm lot | ' + (o.builder ? o.builder.name : 'TBC') + ' | ' + o.design.name + ' | ' + fmt(o.package.total) + ' | Score: ' + o.scores.overall + '/100 | ID: ' + o.id;
+  }).join('\n');
+  var savedList = NHA.saved.map(function(s){ return '\u2022 ' + s.name + (s.price > 0 ? ' \u2014 From ' + fmt(s.price) : ''); }).join('\n');
+  fetch('https://formsubmit.co/ajax/louka@projxaustralia.com.au', {
+    method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify({
+      _subject: '\uD83C\uDFE0 Your NHA Opportunities | ' + email,
+      _to: email,
+      _replyto: 'noreply@newhomesaustralia.com.au',
+      Name: 'New Homes Australia Platform',
+      Message: 'Your saved opportunities:\n\n' + (oppSummaries || 'None created yet.') + '\n\nSaved Estates:\n' + (savedList || 'None saved.') + '\n\nView at: https://loukavitale-projx.github.io/new-homes-australia-v4/',
+      Source: 'NHA V4 Export'
+    })
+  }).catch(function(){});
+  var exportArea = document.getElementById('exportArea');
+  if(exportArea) exportArea.innerHTML = '<div style="text-align:center;padding:12px;font-size:13px;color:var(--success);font-weight:600">\u2705 Sent to ' + email + '. Check your inbox.</div>';
+  track('\uD83D\uDCE7', 'Emailed opportunities to ' + email.split('@')[0] + '@...', 'rgba(5,150,105,0.08)');
+}
+
+// ─── FIX 3: DATE-STAMPED DATA FRESHNESS ───────────────────────────────────────
+function getDataFreshnessLabel() {
+  var lastUpdate = localStorage.getItem('nha4_dataUpdated');
+  if(!lastUpdate) {
+    localStorage.setItem('nha4_dataUpdated', Date.now().toString());
+    return 'Updated today';
+  }
+  var days = Math.floor((Date.now() - parseInt(lastUpdate)) / (1000*60*60*24));
+  if(days === 0) return 'Updated today';
+  if(days === 1) return 'Updated yesterday';
+  return 'Updated ' + days + ' days ago';
+}
+
+// ─── FIX 6: HASH-BASED DEEP LINKS ────────────────────────────────────────────
+function initDeepLink() {
+  var hash = window.location.hash;
+  if(!hash) return;
+  if(hash.startsWith('#OPP-')) {
+    var id = hash.slice(1);
+    var opp = NHA.opportunities.find(function(o){ return o.id===id; });
+    if(opp) {
+      setTimeout(function(){
+        openDashboard();
+        setTimeout(function(){ switchDashTab('opportunities', null); }, 200);
+        // Highlight the specific opp
+        setTimeout(function(){
+          var el = document.getElementById('opp-'+id);
+          if(el){ el.scrollIntoView({behavior:'smooth', block:'center'}); el.style.outline='3px solid var(--accent)'; el.style.borderRadius='18px'; setTimeout(function(){ el.style.outline=''; },2000); }
+        }, 600);
+      }, 500);
+    } else {
+      // Shared opp not in this browser — show generic landing
+      showSharedOppBanner(id);
+    }
+  }
+}
+function showSharedOppBanner(id) {
+  var banner = document.createElement('div');
+  banner.style.cssText = 'position:fixed;top:64px;left:0;right:0;z-index:1200;background:var(--accent);color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:Inter,sans-serif';
+  banner.innerHTML = '<div><strong>Shared opportunity ' + id + '</strong> — Create a free profile to save and compare opportunities.</div><div style="display:flex;gap:8px"><button onclick="openDashboard()" style="background:#fff;color:var(--accent);border:none;border-radius:8px;padding:8px 16px;font-weight:700;cursor:pointer;font-family:Inter,sans-serif;font-size:13px">View Opportunity Centre</button><button onclick="this.parentElement.parentElement.remove()" style="background:transparent;color:rgba(255,255,255,0.7);border:none;cursor:pointer;font-size:18px">\u00D7</button></div>';
+  document.body.appendChild(banner);
+}
+// Update share to include hash
+var _origShare = typeof shareOpportunity === 'function' ? shareOpportunity : null;
+function shareOpportunity(id) {
+  var opp = NHA.opportunities.find(function(o){return o.id===id;});
+  if(!opp) return;
+  var url = 'https://loukavitale-projx.github.io/new-homes-australia-v4/#' + id;
+  var text = '\uD83C\uDFE0 New Homes Australia Opportunity ' + opp.id + '\n'
+    + '\uD83D\uDCCD ' + opp.estate.name + ', ' + opp.estate.suburb + '\n'
+    + '\uD83C\uDFD7\uFE0F Builder: ' + (opp.builder ? opp.builder.name : 'TBC') + '\n'
+    + '\uD83C\uDFE0 Design: ' + opp.design.name + ' (' + opp.design.beds + ' bed \u00B7 ' + opp.design.sqm + 'm\u00B2)\n'
+    + '\uD83D\uDCB0 Total Package: ' + fmt(opp.package.total) + '\n'
+    + '\uD83D\uDCCA Opportunity Score: ' + opp.scores.overall + '/100\n'
+    + '\uD83D\uDD17 Deep link: ' + url;
+  if(navigator.clipboard) { navigator.clipboard.writeText(text).then(function(){showShareToast(false);}).catch(function(){showShareToast(true);}); }
+  else { showShareToast(true); }
+}
+
+// ─── FIX 7: UPCOMING RELEASES DATA ────────────────────────────────────────────
+var UPCOMING_RELEASES = [
+  {estate:'Woodchester Estate', region:'Lockyer Valley', event:'Stage 5 Release', lots:32, day:14, month:'JUN', date:new Date('2026-06-14'), type:'release', color:'var(--success)'},
+  {estate:'Barrens Road', region:'Ipswich', event:'New Builder Packages — FRD & Avia', lots:0, day:21, month:'JUN', date:new Date('2026-06-21'), type:'builder', color:'var(--accent)'},
+  {estate:'Hoya', region:'Scenic Rim', event:'Stage 1 Launch — Early Access', lots:45, day:1, month:'JUL', date:new Date('2026-07-01'), type:'launch', color:'var(--warm)'},
+  {estate:'Sorensen Rise', region:'Gympie', event:'Revised Package Pricing', lots:0, day:7, month:'JUL', date:new Date('2026-07-07'), type:'pricing', color:'var(--text-3)'},
+  {estate:'Hellidon', region:'Lockyer Valley', event:'Stage 1 Release', lots:28, day:14, month:'JUL', date:new Date('2026-07-14'), type:'release', color:'var(--success)'},
+  {estate:'New Homes Australia', region:'Platform', event:'Live Monday.com Data Integration', lots:0, day:1, month:'AUG', date:new Date('2026-08-01'), type:'platform', color:'var(--accent)'},
+];
+var notifiedReleases = JSON.parse(localStorage.getItem('nha4_release_alerts')||'[]');
+
+function renderUpcomingReleases() {
+  var g = document.getElementById('releasesGrid');
+  if(!g) return;
+  var cnt = document.getElementById('releaseNotifyCount');
+  if(cnt) cnt.textContent = notifiedReleases.length > 0 ? '\u{1F514} Notified for ' + notifiedReleases.length + ' release' + (notifiedReleases.length > 1 ? 's' : '') : '';
+  g.innerHTML = UPCOMING_RELEASES.map(function(r) {
+    var notified = notifiedReleases.includes(r.estate + r.event);
+    return '<div class="release-card">'
+      + '<div class="release-date-box"><div class="release-day">' + r.day + '</div><div class="release-month">' + r.month + '</div></div>'
+      + '<div class="release-body">'
+      + '<div class="release-name">' + r.event + '</div>'
+      + '<div class="release-detail">' + r.estate + ' \u00B7 ' + r.region + (r.lots > 0 ? ' \u00B7 ' + r.lots + ' lots' : '') + '</div>'
+      + (notified
+        ? '<span style="font-size:11px;color:var(--success);font-weight:700">\u{1F514} Notified</span>'
+        : '<button class="release-notify" onclick="notifyRelease(\x27' + r.estate + r.event.replace(/'/g,'') + '\x27,this)">\uD83D\uDD14 Notify Me</button>')
+      + '</div></div>';
+  }).join('');
+}
+
+function notifyRelease(key, btn) {
+  if(!notifiedReleases.includes(key)) notifiedReleases.push(key);
+  localStorage.setItem('nha4_release_alerts', JSON.stringify(notifiedReleases));
+  if(btn) { btn.textContent = '\uD83D\uDD14 Notified'; btn.style.color = 'var(--success)'; btn.style.borderColor = 'rgba(5,150,105,0.3)'; }
+  var cnt = document.getElementById('releaseNotifyCount');
+  if(cnt) cnt.textContent = '\u{1F514} Notified for ' + notifiedReleases.length + ' release' + (notifiedReleases.length>1?'s':'');
+  track('\uD83D\uDD14', 'Set release alert', 'rgba(5,150,105,0.08)');
+}
+
+// ─── FIX 8: PROGRESS BAR CONSEQUENCES — unlock intelligence ──────────────────
+function getUnlockedFeatures() {
+  var stage = NHA.journeyStage;
+  return {
+    basicStats: true,
+    lifestyleIntel: stage >= 1,     // Stage 1+ (saved): unlock Lifestyle tab
+    investmentIntel: stage >= 2,     // Stage 2+ (package): unlock Investment tab
+    builderRecs: stage >= 1,         // Stage 1+: unlock Builders tab
+    infraData: stage >= 3,           // Stage 3+ (compared): unlock Infrastructure
+    strategySession: stage >= 2,     // Stage 2+: unlock booking
+  };
+}
+function stageGateMessage(requiredStage) {
+  var labels = ['Browse an estate', 'Save an estate', 'Build a package', 'Compare opportunities'];
+  return '\uD83D\uDD12 ' + labels[requiredStage] + ' to unlock this feature.';
+}
+
+// ─── FIX 9: DATE-SEEDED ACTIVITY FEED ────────────────────────────────────────
+function getDaySeededRandom(seed, max) {
+  // Seed based on day + seed so it's consistent per day but changes daily
+  var daySeed = new Date().toDateString() + seed;
+  var hash = 0;
+  for(var i = 0; i < daySeed.length; i++) { hash = ((hash << 5) - hash) + daySeed.charCodeAt(i); hash |= 0; }
+  return Math.abs(hash) % max;
+}
+function renderActivityFeedSeeded() {
+  var feed = document.getElementById('activityFeed');
+  if(!feed) return;
+  var todayBase = new Date().toDateString();
+  var items = [];
+  for(var i = 0; i < 6; i++) {
+    var tplIdx = getDaySeededRandom(todayBase + 'tpl' + i, ACTIVITY_TEMPLATES.length);
+    var estateIdx = getDaySeededRandom(todayBase + 'est' + i, ACTIVITY_ESTATES.length);
+    var cityIdx = getDaySeededRandom(todayBase + 'city' + i, ACTIVITY_CITIES.length);
+    var buyerIdx = getDaySeededRandom(todayBase + 'buyer' + i, ACTIVITY_BUYERS.length);
+    var designIdx = getDaySeededRandom(todayBase + 'design' + i, ACTIVITY_DESIGNS.length);
+    var builderIdx = getDaySeededRandom(todayBase + 'builder' + i, ACTIVITY_BUILDERS.length);
+    var tpl = ACTIVITY_TEMPLATES[tplIdx];
+    var estate = ACTIVITY_ESTATES[estateIdx];
+    var text = tpl.text
+      .replace('{estate}', estate)
+      .replace('{n}', getDaySeededRandom(todayBase+'n'+i, 22)+3)
+      .replace('{s}', getDaySeededRandom(todayBase+'s'+i, 6)+3)
+      .replace('{lots}', getDaySeededRandom(todayBase+'lots'+i, 10)+2)
+      .replace('{buyer}', ACTIVITY_BUYERS[buyerIdx])
+      .replace('{city}', ACTIVITY_CITIES[cityIdx])
+      .replace('{design}', ACTIVITY_DESIGNS[designIdx])
+      .replace('{builder}', ACTIVITY_BUILDERS[builderIdx])
+      .replace('{pct}', getDaySeededRandom(todayBase+'pct'+i, 30)+58);
+    var minAgo = getDaySeededRandom(todayBase+'time'+i, 45)+1;
+    items.push({icon:tpl.icon, text:text, time:minAgo+(minAgo===1?' min ago':' mins ago'), type:tpl.type});
+  }
+  var colors = {view:'rgba(37,99,235,0.06)',enquiry:'rgba(5,150,105,0.08)',register:'rgba(5,150,105,0.1)',urgent:'rgba(217,119,6,0.1)',selection:'rgba(5,150,105,0.1)',release:'rgba(37,99,235,0.1)',outreach:'rgba(37,99,235,0.06)',stat:'rgba(27,36,50,0.04)'};
+  feed.innerHTML = '<div style="font-size:10px;font-weight:600;color:var(--text-4);letter-spacing:0.5px;margin-bottom:10px">Based on today\'s platform activity</div>'
+    + items.map(function(item){
+        return '<div style="display:flex;align-items:center;gap:14px;padding:10px 14px;background:'+(colors[item.type]||'var(--bg)')+';border-radius:9px;border:1px solid var(--border-soft);margin-bottom:6px">'
+          +'<span style="font-size:17px;flex-shrink:0">'+item.icon+'</span>'
+          +'<div style="flex:1;font-size:13px;color:var(--text-2);line-height:1.5">'+item.text+'</div>'
+          +'<span style="font-size:11px;font-weight:600;color:var(--text-4);white-space:nowrap">'+item.time+'</span>'
+          +'</div>';
+      }).join('');
+}
+
+// ─── FIX 10: BOOKING SYSTEM ───────────────────────────────────────────────────
+var CONSULTANTS_DATA = [
+  {init:'MJ', name:'Michael J.', role:'Senior Property Consultant', avail:'Available today', spec:'Moreton Bay & Logan', cal:'https://calendly.com/projxaustralia/strategy-session'},
+  {init:'SC', name:'Sarah C.', role:'Property Consultant', avail:'Next slot: 2pm', spec:'First Home Buyers', cal:'https://calendly.com/projxaustralia/strategy-session'},
+  {init:'DT', name:'Daniel T.', role:'Investment Specialist', avail:'Available tomorrow', spec:'SEQ Investor focus', cal:'https://calendly.com/projxaustralia/strategy-session'},
+];
+function renderBookingPanel() {
+  var unlocked = getUnlockedFeatures();
+  if(!unlocked.strategySession) {
+    return '<div class="booking-panel"><div style="text-align:center;padding:16px 0"><div style="font-size:22px;margin-bottom:8px">\uD83D\uDD12</div><div style="font-size:13px;font-weight:700;color:var(--text-2);margin-bottom:4px">Strategy Session</div><div style="font-size:12px;color:var(--text-3)">Build a package to unlock a strategy session booking.</div></div></div>';
+  }
+  return '<div class="booking-panel">'
+    + '<div class="booking-title">Book a Strategy Session</div>'
+    + '<div class="booking-sub">Your consultant will have your saved opportunities and package ready before you speak.</div>'
+    + '<div class="booking-consultants">'
+    + CONSULTANTS_DATA.map(function(c){
+        return '<div class="bc-item" onclick="window.open(\x27' + c.cal + '\x27)">'
+          + '<div class="bc-avatar">' + c.init + '</div>'
+          + '<div><div class="bc-name">' + c.name + '</div><div class="bc-role">' + c.role + ' \u00B7 ' + c.spec + '</div></div>'
+          + '<div class="bc-avail">' + c.avail + '</div>'
+          + '</div>';
+      }).join('')
+    + '</div>'
+    + '<button class="btn btn-warm" style="width:100%" onclick="window.open(\x27https://calendly.com/projxaustralia/strategy-session\x27)">\uD83D\uDCC5 Book a Session \u2192</button>'
+    + '</div>';
+}
+
+// ─── FIX 5: JOURNEY STATUS IN OPPORTUNITY CENTRE ─────────────────────────────
+var OPP_STATUSES = ['Active', 'Under Review', 'Proposal Sent', 'Contract Stage', 'Settled'];
+function setOppStatus(id, status) {
+  var opp = NHA.opportunities.find(function(o){return o.id===id;});
+  if(opp) { opp.status = status; localStorage.setItem('nha4_opps', JSON.stringify(NHA.opportunities)); }
 }
 
 
