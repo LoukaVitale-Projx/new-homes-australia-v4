@@ -313,7 +313,34 @@ footer{background:var(--primary);padding:52px 0 28px}
 .step-card{background:var(--white);border-radius:var(--radius-xl);border:1.5px solid var(--border-soft);padding:28px;transition:var(--transition)}
 .step-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
 /* Responsive */
-@media(max-width:1024px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}.ep-grid{grid-template-columns:1fr}.ep-right{border-left:none;border-top:1px solid var(--border)}}
+
+ /* ─ OPPORTUNITIES ─ */
+ .opp-card{background:var(--white);border-radius:var(--radius-xl);border:1px solid var(--border-soft);box-shadow:var(--shadow-sm);overflow:hidden;transition:var(--transition)}
+ .opp-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+ .opp-card-header{background:var(--primary);padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
+ .opp-id{font-size:11px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,0.5);font-family:'Inter',sans-serif}
+ .opp-score-badge{background:rgba(255,255,255,0.12);border-radius:20px;padding:4px 12px;font-size:12px;font-weight:800;color:#fff}
+ .opp-img{width:100%;height:160px;object-fit:cover}
+ .opp-body{padding:18px 20px}
+ .opp-estate{font-size:17px;font-weight:900;color:var(--primary);letter-spacing:-0.3px;margin-bottom:2px}
+ .opp-sub{font-size:12px;color:var(--text-3);margin-bottom:14px}
+ .opp-components{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+ .opp-comp{background:var(--bg);border-radius:var(--radius);padding:10px 12px}
+ .opp-comp-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-4);margin-bottom:3px}
+ .opp-comp-val{font-size:13px;font-weight:700;color:var(--primary)}
+ .opp-total{font-size:24px;font-weight:900;color:var(--primary);letter-spacing:-0.8px;margin-bottom:2px}
+ .opp-weekly{font-size:12px;color:var(--text-3);margin-bottom:12px}
+ .opp-insight{background:var(--warm-soft);border-left:3px solid var(--warm);border-radius:0 var(--radius) var(--radius) 0;padding:10px 14px;font-size:12px;color:var(--text-2);line-height:1.6;margin-bottom:12px}
+ .opp-insight-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--warm);margin-bottom:4px}
+ .opp-actions{display:flex;gap:7px;flex-wrap:wrap}
+ .opp-share-toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:var(--primary);color:#fff;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:600;z-index:9999;opacity:0;transition:opacity 0.3s ease;pointer-events:none}
+ .opp-share-toast.show{opacity:1}
+ /* Opportunity Centre CTA (prominent) */
+ .opp-cta-strip{background:linear-gradient(110deg,var(--primary) 0%,#2D3748 100%);border-radius:var(--radius-xl);padding:24px 28px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:28px}
+ /* Guided CTA banner */
+ .guided-cta{background:var(--accent-soft);border:1.5px solid rgba(37,99,235,0.2);border-radius:var(--radius-lg);padding:14px 18px;display:flex;align-items:center;gap:12px;margin-bottom:12px}
+
+ @media(max-width:1024px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}.ep-grid{grid-template-columns:1fr}.ep-right{border-left:none;border-top:1px solid var(--border)}}
 @media(max-width:768px){.hero-content,.g2{grid-template-columns:1fr;gap:28px}.hero-card{display:none}.nav-link{display:none}.hamburger{display:flex}.container{padding:0 16px}.section{padding:60px 0}.g3{grid-template-columns:1fr}.dev-grid{grid-template-columns:1fr}.dash-tabs{flex-wrap:wrap}.ep-tabs{padding:0 16px}}
 @media(max-width:480px){.hero-cta-row{flex-direction:column}.hero-h1{font-size:32px}.g4{grid-template-columns:1fr}.filter-bar{flex-direction:column}}
 </style>
@@ -329,7 +356,7 @@ footer{background:var(--primary);padding:52px 0 28px}
   <div class="nav-sep"></div>
   <button class="nav-compare" onclick="openComparePanel()" id="navCmp" style="display:none">⊕ Compare <span id="navCmpCount">0</span></button>
   <button class="nav-compare" onclick="openComparePanel()">⊕ Compare</button>
-  <button class="nav-dash-btn" onclick="openDashboard()">❤️ My Opportunities <span id="navSavedBadge" style="display:none;background:var(--warm);color:#fff;border-radius:10px;padding:1px 7px;font-size:11px;margin-left:2px" id="navSavedN">0</span></button>
+  <button class="nav-dash-btn" onclick="openDashboard()" id="navDashBtn">✦ Opportunity Centre <span id="navOppBadge" style="display:none;background:var(--warm);color:#fff;border-radius:10px;padding:1px 7px;font-size:11px;margin-left:2px">0</span></button>
   <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
  </div>
 </nav>
@@ -344,7 +371,7 @@ footer{background:var(--primary);padding:52px 0 28px}
    <p class="hero-sub">Discover exclusive estates, save your favourites, compare options and build your complete home package — all with expert guidance.</p>
    <div class="hero-cta-row">
     <a href="#estates" class="btn btn-primary btn-lg">Explore Estates →</a>
-    <button class="btn btn-outline btn-lg" onclick="openDashboard()">❤️ My Opportunities</button>
+    <button class="btn btn-warm btn-lg" onclick="openDashboard()">✦ Opportunity Centre</button>
    </div>
    <div class="hero-trust">
     <span class="hero-trust-i">✓ Wholesale pricing direct</span>
@@ -516,8 +543,9 @@ footer{background:var(--primary);padding:52px 0 28px}
   <button class="dash-back" onclick="closeDashboard()">← Back</button>
   <div class="dash-title">My Opportunities</div>
   <div class="dash-tabs">
-   <button class="dash-tab active" onclick="switchDashTab('saved',this)">❤️ Saved</button>
-   <button class="dash-tab" onclick="switchDashTab('packages',this)">📦 Packages</button>
+   <button class="dash-tab active" onclick="switchDashTab('opportunities',this)">✦ Opportunities</button>
+   <button class="dash-tab" onclick="switchDashTab('saved',this)">❤️ Saved</button>
+   <button class="dash-tab" onclick="switchDashTab('compare',this)">⊕ Compare</button>
    <button class="dash-tab" onclick="switchDashTab('activity',this)">🕐 Activity</button>
    <button class="dash-tab" onclick="switchDashTab('recommended',this)">✨ Recommended</button>
   </div>
@@ -804,7 +832,7 @@ function openDashboard(){
   var d=document.getElementById('dashboard');
   if(d){d.style.display='flex';document.body.style.overflow='hidden';}
   renderJourneyProgress();
-  switchDashTab('saved',document.querySelector('.dash-tab'));
+  switchDashTab('opportunities',document.querySelector('.dash-tab'));
 }
 function closeDashboard(){
   var d=document.getElementById('dashboard');
@@ -844,6 +872,16 @@ function switchDashTab(tab,el){
   else if(tab==='packages'){
     if(!NHA.packages.length){c.innerHTML='<div class="dash-section-title">My Packages</div><div class="dash-empty"><div class="dash-empty-icon">📦</div><div style="font-size:16px;font-weight:700;color:var(--text-2);margin-bottom:6px">No packages built yet</div><div style="font-size:14px;margin-bottom:16px">Open an estate and use the package builder to create your first package.</div><a href="#estates" class="btn btn-primary btn-sm" onclick="closeDashboard()">Explore Estates →</a></div>';return;}
     c.innerHTML='<div class="dash-section-title">My Packages</div>'+NHA.packages.map(pkg=>'<div style="background:var(--white);border-radius:var(--radius-xl);padding:22px;border:1px solid var(--border-soft);margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px"><div><div style="font-size:16px;font-weight:800;color:var(--primary)">'+esc(pkg.estate)+'</div><div style="font-size:13px;color:var(--text-3)">'+esc(pkg.design||'')+'</div></div><div style="text-align:right"><div style="font-size:22px;font-weight:900;color:var(--primary);letter-spacing:-0.8px">'+fmt(pkg.total)+'</div><div style="font-size:12px;color:var(--text-3)">$'+Math.round(pkg.total*0.95*0.063/52)+'/week</div></div></div>').join('');
+  }
+  else if(tab==='opportunities'){
+    if(!NHA.opportunities.length){
+      c.innerHTML='<div class="opp-cta-strip"><div style="font-size:32px;flex-shrink:0">✦</div><div style="flex:1"><div style="font-size:18px;font-weight:900;color:#fff;letter-spacing:-0.3px;margin-bottom:4px">No opportunities created yet.</div><div style="font-size:13px;color:rgba(255,255,255,0.55)">Open any estate, select a lot and home design, then tap Create Opportunity to build your first one.</div></div><a href="#estates" class="btn" style="background:#fff;color:var(--primary);font-weight:800;flex-shrink:0" onclick="closeDashboard()">Explore Estates →</a></div><div class="dash-empty"><div class="dash-empty-icon">✦</div><div style="font-size:16px;font-weight:700;color:var(--text-2);margin-bottom:6px">Start building opportunities</div><div style="font-size:14px;margin-bottom:16px">Each opportunity bundles estate, lot, builder and design into one complete picture.</div><a href="#estates" class="btn btn-primary btn-sm" onclick="closeDashboard()">Find Your First Estate →</a></div>';
+      return;
+    }
+    c.innerHTML='<div class="dash-section-title">My Opportunities ('+NHA.opportunities.length+')</div><div class="g3">'+NHA.opportunities.map(function(o){return renderOppCard(o);}).join('')+'</div>';
+  }
+  else if(tab==='compare'){
+    c.innerHTML='<div class="dash-section-title">Opportunity Comparison</div><div style="margin-bottom:10px;font-size:13px;color:var(--text-3)">Tap ⊕ Compare on any opportunity card to add it here. Up to 3 at once.</div>'+renderOppCompare();
   }
   else if(tab==='activity'){
     if(!NHA.activity.length){c.innerHTML='<div class="dash-section-title">Recent Activity</div><div class="dash-empty"><div class="dash-empty-icon">🕐</div><div style="font-size:16px;font-weight:700;color:var(--text-2);margin-bottom:6px">No activity yet</div><div style="font-size:14px">Start exploring estates to see your activity here.</div></div>';return;}
@@ -985,7 +1023,7 @@ function renderEpRight(){
   var frontages=[10,12.5,14,16];
   var premDesigns=DESIGNS.filter(d=>BUILDERS.find(b=>b.name===d.builder&&b.tierGroup==='premium')).slice(0,8);
   right.innerHTML='<div class="pkg-right">'
-    +'<div class="pkg-right-title">Build Your Package</div>'
+    +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><div class="pkg-right-title" style="margin-bottom:0">Create an Opportunity</div><span style="font-size:11px;background:var(--accent-soft);color:var(--accent);border:1px solid rgba(37,99,235,0.2);border-radius:10px;padding:2px 8px;font-weight:700">New</span></div>'
     +'<div style="font-size:13px;color:var(--text-3);margin-bottom:18px">Select a lot width and home design to see your complete package.</div>'
     +'<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-4);margin-bottom:8px">Lot Width</div>'
     +'<div class="pkg-pills" id="pkgLotPills">'
@@ -1061,22 +1099,249 @@ function showPkgInvest(){
 function updateCtxCta(){
   var el=document.getElementById('ctxCta');
   if(!el)return;
-  var stage=NHA.journeyStage;
   var p=NHA.currentEstate;
-  if(stage>=2){
-    el.innerHTML='<div class="ctx-cta ctx-cta-pkg"><div style="font-size:15px;font-weight:800;color:var(--primary);margin-bottom:4px">Your package is ready.</div><div style="font-size:12px;color:var(--text-3);margin-bottom:14px">A consultant with this package detail will call you back within the hour.</div><button class="btn btn-warm" style="width:100%;margin-bottom:8px" onclick="openChatP()">Review My Package with a Consultant →</button><button class="btn btn-outline btn-sm" style="width:100%" onclick="openDashboard();closeDashboard()">Save to My Opportunities</button></div>';
-  }else if(stage>=1){
-    el.innerHTML='<div class="ctx-cta ctx-cta-saved"><div style="font-size:15px;font-weight:800;color:var(--accent);margin-bottom:4px">Estate saved. Now build your package.</div><div style="font-size:12px;color:var(--text-3);margin-bottom:12px">Select a lot width and design above to see the complete cost breakdown.</div></div>';
+  var hasLot=!!NHA.pkgLot;
+  var hasDesign=!!NHA.pkgDesign;
+  if(hasLot&&hasDesign){
+    el.innerHTML='<div style="background:var(--primary);border-radius:var(--radius-xl);padding:20px;text-align:center">'
+      +'<div style="font-size:22px;margin-bottom:8px">✦</div>'
+      +'<div style="font-size:16px;font-weight:900;color:#fff;letter-spacing:-0.3px;margin-bottom:4px">Ready to create this opportunity?</div>'
+      +'<div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:14px">Bundle estate, lot, builder and design into one complete opportunity with a unique ID and intelligence score.</div>'
+      +'<button class="btn btn-warm" style="width:100%;font-size:15px;padding:14px;margin-bottom:8px" onclick="createOpportunity()">✦ Create Opportunity →</button>'
+      +'<button class="btn" style="background:rgba(255,255,255,0.1);color:#fff;width:100%;font-size:13px" onclick="openChatP()">Talk to a Consultant</button>'
+      +'</div>';
+  }else if(hasLot||NHA.saved.some(function(s){return p&&s.id===p.id;})){
+    el.innerHTML='<div class="guided-cta"><span style="font-size:18px">✦</span><div style="flex:1"><div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:2px">'+(hasLot?'Almost there — now select a home design.':'Good start — now select a lot width.')+'</div><div style="font-size:12px;color:var(--text-3)">Select '+(hasLot?'a home design':'a lot width')+' above to create your opportunity.</div></div></div>';
   }else{
-    el.innerHTML='<div class="ctx-cta ctx-cta-browse"><div style="font-size:14px;font-weight:700;color:var(--primary);margin-bottom:4px">Like what you see?</div><div style="font-size:12px;color:var(--text-3);margin-bottom:12px">Save this estate to your opportunities and we\'ll notify you when new lots are released.</div><button class="btn btn-primary btn-sm" style="width:100%" onclick="toggleSavePanel()">❤️ Save This Estate</button></div>';
+    el.innerHTML='<div style="background:var(--bg);border-radius:var(--radius-lg);padding:14px 16px;text-align:center"><div style="font-size:13px;font-weight:700;color:var(--primary);margin-bottom:4px">Like what you see?</div><div style="font-size:12px;color:var(--text-3);margin-bottom:10px">Save this estate, then select a lot and design to create an opportunity.</div><button class="btn btn-primary btn-sm" style="width:100%" onclick="toggleSavePanel()">❤️ Save This Estate</button></div>';
   }
 }
 function openChatP(){var c=document.getElementById('chatPanel');if(c){c.style.display='block';var m=document.getElementById('cpMsg');if(m&&NHA.currentEstate)m.value='Interested in '+NHA.currentEstate.name;}}
 
+
+// ─── OPPORTUNITY ENGINE ──────────────────────────────────────────────────────
+// Opportunities are complete estate+lot+builder+design bundles
+NHA.opportunities = JSON.parse(localStorage.getItem('nha4_opps')||'[]');
+
+function genOppId() {
+  return 'OPP-' + Math.random().toString(36).substring(2,7).toUpperCase();
+}
+
+function calcOppScores(p, design) {
+  return {
+    lifestyle: 94,
+    demand: (p.absorption||0) > 50 ? 91 : 78,
+    affordability: (p.minPrice||0) > 0 && (p.minPrice||0) < 400000 ? 88 : 74,
+    buildCertainty: (p.monthsToTitle||12) === 0 ? 96 : 82,
+    overall: Math.round((94 + ((p.absorption||0)>50?91:78) + ((p.minPrice||0)>0&&(p.minPrice||0)<400000?88:74) + ((p.monthsToTitle||12)===0?96:82)) / 4)
+  };
+}
+
+function getOppInsight(p, builder, design) {
+  var insights = [
+    p.monthsToTitle === 0 ? 'Land is titled and ready to build — no holding cost risk. Site works can commence immediately.' : 'Land expected in ' + (p.monthsToTitle||12) + ' months — building contract can be executed now at current prices.',
+    builder ? builder.name + ' is a ' + (builder.tierGroup === 'premium' ? 'preferred ProjX partner' : 'network builder') + ', delivering quality homes in this corridor.' : 'Builder to be confirmed.',
+    (p.absorption||0) > 60 ? 'High absorption rate (' + p.absorption + '% sold) confirms strong buyer demand and a liquid market in this estate.' : 'Early-stage release opportunity — securing now positions you ahead of full market demand.',
+    p.region === 'Scenic Rim' || p.region === 'Gold Coast' ? 'Infrastructure investment in this corridor is accelerating. Strong long-term capital growth fundamentals.' : 'Active development corridor with improving amenity, transport links and schooling options.'
+  ];
+  return insights.slice(0,2).join(' ');
+}
+
+function getOppRecommendation(scores) {
+  if(scores.overall >= 90) return 'Exceptional opportunity. High lifestyle, strong demand and build certainty make this a standout in our current portfolio.';
+  if(scores.overall >= 80) return 'Strong opportunity. This combination delivers solid value across lifestyle, investment and delivery metrics.';
+  return 'Solid opportunity with good fundamentals. Review the package detail and speak with a consultant before proceeding.';
+}
+
+function createOpportunity() {
+  var p = NHA.currentEstate;
+  if(!p) { alert('Please select an estate first.'); return; }
+  if(!NHA.pkgLot) { alert('Please select a lot width to create an opportunity.'); return; }
+  if(!NHA.pkgDesign) { alert('Please select a home design to create an opportunity.'); return; }
+
+  var builder = NHA.pkgDesign ? BUILDERS.find(function(b){return b.name===NHA.pkgDesign.builder;}) : null;
+  var land = p.minPrice>0 ? p.minPrice : 0;
+  var build = parseInt((NHA.pkgDesign.price||'0').replace(/[^0-9]/g,'0'));
+  var extras = 22500;
+  var total = land + build + extras;
+  var scores = calcOppScores(p, NHA.pkgDesign);
+
+  var opp = {
+    id: genOppId(),
+    createdAt: Date.now(),
+    estate: { id: p.id, name: p.name, suburb: p.suburb, region: p.region },
+    lot: { frontage: NHA.pkgLot },
+    builder: builder ? { id: builder.id, name: builder.name, tier: builder.tier, tierGroup: builder.tierGroup } : null,
+    design: { name: NHA.pkgDesign.name, beds: NHA.pkgDesign.beds, baths: NHA.pkgDesign.baths, garage: NHA.pkgDesign.garage, sqm: NHA.pkgDesign.sqm, price: NHA.pkgDesign.price },
+    package: { land: land, build: build, extras: extras, total: total, weeklyRepayment: Math.round(total*0.95*0.063/52), deposit: Math.round(total*0.1) },
+    scores: scores,
+    insight: getOppInsight(p, builder, NHA.pkgDesign),
+    recommendation: getOppRecommendation(scores),
+    status: 'active'
+  };
+
+  // Replace if same estate/lot/design combo exists
+  var idx = NHA.opportunities.findIndex(function(o){ return o.estate.id===p.id && o.lot.frontage===NHA.pkgLot && o.design.name===NHA.pkgDesign.name; });
+  if(idx > -1) NHA.opportunities[idx] = opp;
+  else NHA.opportunities.unshift(opp);
+
+  localStorage.setItem('nha4_opps', JSON.stringify(NHA.opportunities));
+  if(NHA.journeyStage < 2) NHA.journeyStage = 2;
+  track('✦', 'Created opportunity ' + opp.id + ' — ' + p.name, 'rgba(37,99,235,0.08)');
+  save(); updateNav();
+
+  // Show confirmation in the panel
+  showOppCreatedConfirmation(opp);
+}
+
+function showOppCreatedConfirmation(opp) {
+  var ctxEl = document.getElementById('ctxCta');
+  if(!ctxEl) return;
+  ctxEl.innerHTML = '<div style="background:rgba(5,150,105,0.08);border:1.5px solid rgba(5,150,105,0.25);border-radius:var(--radius-xl);padding:18px 20px;text-align:center">'
+    + '<div style="font-size:22px;margin-bottom:8px">✅</div>'
+    + '<div style="font-size:15px;font-weight:800;color:var(--primary);margin-bottom:4px">Opportunity Created</div>'
+    + '<div style="font-size:12px;color:var(--text-3);margin-bottom:4px">ID: <strong>' + opp.id + '</strong></div>'
+    + '<div style="font-size:12px;color:var(--text-3);margin-bottom:14px">Score: ' + opp.scores.overall + '/100</div>'
+    + '<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">'
+    + '<button class="btn btn-primary btn-sm" onclick="openDashboard();setTimeout(function(){switchDashTab(\'opportunities\',null);},100)">View in Opportunity Centre \u2192</button>'
+    + '<button class="btn btn-outline btn-sm" onclick="shareOpportunity(\'' + opp.id + '\')">Share</button>'
+    + '</div></div>';
+}
+
+// ─── OPPORTUNITY CARD RENDERER ───────────────────────────────────────────────
+function renderOppCard(opp) {
+  var imgSrc = 'img/' + opp.estate.id + '.jpg';
+  var totalStr = opp.package.total > 0 ? fmt(opp.package.total) : 'TBA';
+  var weeklyStr = opp.package.weeklyRepayment > 0 ? '$' + opp.package.weeklyRepayment + '/week' : '—';
+  var ago = Math.round((Date.now()-opp.createdAt)/60000);
+  var agoStr = ago < 60 ? ago + 'm ago' : Math.round(ago/60) + 'h ago';
+  return '<div class="opp-card" id="opp-'+opp.id+'">'
+    + '<div class="opp-card-header">'
+    + '<div><div class="opp-id">' + opp.id + '</div><div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px">Created ' + agoStr + '</div></div>'
+    + '<div class="opp-score-badge">' + opp.scores.overall + '/100</div>'
+    + '</div>'
+    + '<img src="'+imgSrc+'" alt="'+esc(opp.estate.name)+'" class="opp-img" onerror="this.src=\'img/oakland.jpg\'" loading="lazy">'
+    + '<div class="opp-body">'
+    + '<div class="opp-estate">' + esc(opp.estate.name) + '</div>'
+    + '<div class="opp-sub">' + esc(opp.estate.suburb) + ', ' + esc(opp.estate.region) + ' · ' + opp.lot.frontage + 'm lot</div>'
+    + '<div class="opp-components">'
+    + '<div class="opp-comp"><div class="opp-comp-label">Builder</div><div class="opp-comp-val">' + esc(opp.builder ? opp.builder.name : 'TBC') + '</div></div>'
+    + '<div class="opp-comp"><div class="opp-comp-label">Home Design</div><div class="opp-comp-val">' + esc(opp.design.name) + '</div></div>'
+    + '<div class="opp-comp"><div class="opp-comp-label">Specs</div><div class="opp-comp-val">' + opp.design.beds + ' bed · ' + opp.design.baths + ' bath · ' + opp.design.sqm + 'm²</div></div>'
+    + '<div class="opp-comp"><div class="opp-comp-label">Build Cert.</div><div class="opp-comp-val" style="color:var(--success)">' + opp.scores.buildCertainty + '/100</div></div>'
+    + '</div>'
+    + '<div class="opp-total">' + totalStr + '</div>'
+    + '<div class="opp-weekly">Est. ' + weeklyStr + ' at 6.1% · 30yr · 10% deposit</div>'
+    + '<div class="opp-insight"><div class="opp-insight-label">ProjX Insight</div>' + esc(opp.insight) + '</div>'
+    + '<div style="font-size:12px;color:var(--text-2);line-height:1.6;margin-bottom:12px;padding:10px 12px;background:rgba(37,99,235,0.05);border-radius:var(--radius)"><strong style="color:var(--accent)">Recommended:</strong> ' + esc(opp.recommendation) + '</div>'
+    + '<div class="opp-actions">'
+    + '<button class="btn btn-primary btn-sm" onclick="openEstate(\x27'+opp.estate.id+'\x27)">View \u2192</button>'
+    + '<button class="btn btn-outline btn-sm" onclick="toggleOppCompare(\x27'+opp.id+'\x27)">\u2295 Compare</button>'
+    + '<button class="btn btn-outline btn-sm" onclick="shareOpportunity(\x27'+opp.id+'\x27)">\u2197 Share</button>'
+    + '<button class="btn-icon-sm" onclick="deleteOpportunity(\x27'+opp.id+'\x27)" title="Delete" style="margin-left:auto;color:var(--danger);font-size:14px">\u{1F5D1}</button>'
+    + '</div>'
+    + '</div>'; '</div>'
+    + '</div>';
+}
+
+// ─── OPPORTUNITY MANAGEMENT ───────────────────────────────────────────────────
+function deleteOpportunity(id) {
+  NHA.opportunities = NHA.opportunities.filter(function(o){return o.id!==id;});
+  localStorage.setItem('nha4_opps', JSON.stringify(NHA.opportunities));
+  updateNav();
+  // Re-render if dashboard is open
+  var dashOpen = document.getElementById('dashboard') && document.getElementById('dashboard').style.display !== 'none';
+  if(dashOpen) switchDashTab('opportunities', null);
+}
+
+function shareOpportunity(id) {
+  var opp = NHA.opportunities.find(function(o){return o.id===id;});
+  if(!opp) return;
+  var text = '\uD83C\uDFE0 New Homes Australia Opportunity ' + opp.id + '\n'
+    + '\uD83D\uDCCD ' + opp.estate.name + ', ' + opp.estate.suburb + '\n'
+    + '\uD83C\uDFD7\uFE0F Builder: ' + (opp.builder ? opp.builder.name : 'TBC') + '\n'
+    + '\uD83C\uDFE0 Design: ' + opp.design.name + ' (' + opp.design.beds + ' bed \u00B7 ' + opp.design.sqm + 'm\u00B2)\n'
+    + '\uD83D\uDCB0 Total Package: ' + fmt(opp.package.total) + '\n'
+    + '\uD83D\uDCCA Opportunity Score: ' + opp.scores.overall + '/100\n'
+    + '\uD83D\uDD17 View at: https://loukavitale-projx.github.io/new-homes-australia-v4/';
+  if(navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function(){showShareToast(false);}).catch(function(){showShareToast(true);});
+  } else {
+    showShareToast(true);
+  }
+}
+
+function showShareToast(fallback) {
+  var toast = document.getElementById('oppShareToast');
+  if(!toast) {
+    toast = document.createElement('div');
+    toast.id = 'oppShareToast';
+    toast.className = 'opp-share-toast';
+    toast.textContent = fallback ? 'Share text ready — copy from console' : '✅ Opportunity copied to clipboard!';
+    document.body.appendChild(toast);
+  } else {
+    toast.textContent = fallback ? 'Share text ready' : '✅ Copied to clipboard!';
+  }
+  toast.classList.add('show');
+  setTimeout(function(){ toast.classList.remove('show'); }, 2500);
+}
+
+// ─── OPPORTUNITY COMPARE ──────────────────────────────────────────────────────
+NHA.oppCompare = [];
+function toggleOppCompare(id) {
+  var idx = NHA.oppCompare.indexOf(id);
+  if(idx > -1) NHA.oppCompare.splice(idx, 1);
+  else if(NHA.oppCompare.length < 3) NHA.oppCompare.push(id);
+  if(NHA.journeyStage < 3) NHA.journeyStage = 3;
+  // Re-render opp centre if open
+  var dashOpen = document.getElementById('dashboard') && document.getElementById('dashboard').style.display !== 'none';
+  if(dashOpen) switchDashTab('compare', null);
+}
+
+function renderOppCompare() {
+  if(NHA.oppCompare.length < 1) {
+    return '<div class="dash-empty"><div class="dash-empty-icon">⊕</div><div style="font-size:16px;font-weight:700;color:var(--text-2);margin-bottom:6px">No opportunities in comparison</div><div style="font-size:14px;margin-bottom:14px">Create opportunities from estate detail pages and tap ⊕ Compare to add them here.</div></div>';
+  }
+  var opps = NHA.oppCompare.map(function(id){return NHA.opportunities.find(function(o){return o.id===id;});}).filter(Boolean);
+  if(!opps.length) return '<div class="dash-empty"><div class="dash-empty-icon">⊕</div><div style="font-size:14px;color:var(--text-3)">No matching opportunities found.</div></div>';
+
+  var fields = [
+    {label:'Estate',fn:function(o){return esc(o.estate.name);}},
+    {label:'Location',fn:function(o){return esc(o.estate.suburb)+', '+esc(o.estate.region);}},
+    {label:'Lot',fn:function(o){return o.lot.frontage+'m frontage';}},
+    {label:'Builder',fn:function(o){return esc(o.builder?o.builder.name:'TBC');}},
+    {label:'Design',fn:function(o){return esc(o.design.name);}},
+    {label:'Specs',fn:function(o){return o.design.beds+' bed · '+o.design.baths+' bath · '+o.design.sqm+'m²';}},
+    {label:'Total Package',fn:function(o){return '<strong>'+fmt(o.package.total)+'</strong>';}},
+    {label:'Weekly Repayment',fn:function(o){return '$'+o.package.weeklyRepayment+'/wk';}},
+    {label:'Deposit (10%)',fn:function(o){return fmt(o.package.deposit);}},
+    {label:'Opportunity Score',fn:function(o){var s=o.scores.overall;return '<span style="font-weight:800;color:'+(s>=90?'var(--success)':s>=80?'var(--accent)':'var(--text-2)')+'">'+s+'/100</span>';}},
+    {label:'Lifestyle',fn:function(o){return o.scores.lifestyle+'/100';}},
+    {label:'Build Certainty',fn:function(o){return o.scores.buildCertainty+'/100';}},
+  ];
+
+  return '<div style="overflow-x:auto">'
+    + '<div style="display:grid;grid-template-columns:160px '+opps.map(()=>'1fr').join(' ')+';gap:1px;background:var(--border);border-radius:var(--radius-xl);overflow:hidden;min-width:500px">'
+    + '<div style="background:var(--bg-warm);padding:12px 14px;font-size:11px;font-weight:700;color:var(--text-3)">Feature</div>'
+    + opps.map(function(o){return '<div style="background:var(--bg);padding:12px 14px"><div style="font-size:13px;font-weight:800;color:var(--accent)">'+o.id+'</div><div style="font-size:11px;color:var(--text-3)">'+esc(o.estate.name)+'</div></div>';}).join('')
+    + fields.map(function(f){
+        return '<div style="background:var(--bg-warm);padding:10px 14px;font-size:12px;color:var(--text-3);font-weight:600">'+f.label+'</div>'
+          + opps.map(function(o){return '<div style="background:var(--white);padding:10px 14px;font-size:13px;font-weight:600;color:var(--primary)">'+f.fn(o)+'</div>';}).join('');
+      }).join('')
+    + '</div></div>'
+    + '<div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">'
+    + opps.map(function(o){return '<button class="btn btn-primary btn-sm" onclick="openEstate(\x27'+o.estate.id+'\x27)">View '+esc(o.estate.name)+' →</button>';}).join('')
+    + '</div>';
+}
+
+
 // ─── NAV & UI ─────────────────────────────────────────────────────────────────
 function updateNav(){
-  var b=document.querySelector('.nav-dash-btn');
-  if(b){var n=NHA.saved.length;b.innerHTML='❤️ My Opportunities'+(n>0?'<span style="background:var(--warm);color:#fff;border-radius:10px;padding:1px 7px;font-size:11px;margin-left:4px">'+n+'</span>':'');}
+  var b=document.getElementById('navDashBtn');
+  var oppCount=NHA.opportunities.length;
+  var savedCount=NHA.saved.length;
+  var total=oppCount+savedCount;
+  if(b){b.innerHTML='✦ Opportunity Centre'+(total>0?'<span style="background:var(--warm);color:#fff;border-radius:10px;padding:1px 7px;font-size:11px;margin-left:4px">'+total+'</span>':'');}
   updateCmpBar();
 }
 function toggleNav(){var l=document.querySelector('.nav-inner');/* Mobile nav toggle */}
