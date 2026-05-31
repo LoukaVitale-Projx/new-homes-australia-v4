@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Homes Australia — Your Perfect New Home Awaits</title>
+<meta name="description" content="Discover, save and compare Australia's best new home opportunities. Personalised estate matching, complete package building and expert guidance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#FFFFFF;--bg:#F7F6F4;--bg-warm:#FFF9F5;--surface:#FFF;
+  --primary:#1A1F2E;--primary-mid:#2D3748;
+  --accent:#2563EB;--accent-soft:rgba(37,99,235,0.08);
+  --warm:#E8833A;--warm-soft:#FFF3EB;--warm-border:rgba(232,131,58,0.2);
+  --gold:#F59E0B;--success:#059669;--success-soft:rgba(5,150,105,0.1);
+  --danger:#DC2626;
+  --text:#111827;--text-2:#374151;--text-3:#6B7280;--text-4:#9CA3AF;
+  --border:#E5E7EB;--border-soft:#F3F4F6;
+  --shadow-xs:0 1px 2px rgba(0,0,0,0.05);
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04);
+  --shadow:0 4px 16px rgba(0,0,0,0.08),0 2px 6px rgba(0,0,0,0.04);
+  --shadow-lg:0 16px 48px rgba(0,0,0,0.1),0 6px 16px rgba(0,0,0,0.06);
+  --shadow-xl:0 24px 64px rgba(0,0,0,0.12);
+  --radius:12px;--radius-lg:18px;--radius-xl:24px;
+  --transition:all 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:#D1D5DB;border-radius:3px}
+/* ─ BUTTONS ─ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Inter',sans-serif;font-weight:600;border:none;cursor:pointer;border-radius:10px;transition:var(--transition);white-space:nowrap;text-decoration:none;font-size:15px;line-height:1}
+.btn-primary{background:var(--primary);color:#fff;padding:13px 24px;box-shadow:0 2px 8px rgba(26,31,46,0.2)}
+.btn-primary:hover{background:var(--primary-mid);transform:translateY(-1px)}
+.btn-accent{background:var(--accent);color:#fff;padding:13px 24px}
+.btn-accent:hover{background:#1D4ED8;transform:translateY(-1px)}
+.btn-warm{background:var(--warm);color:#fff;padding:13px 24px}
+.btn-warm:hover{background:#D97706;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--primary);border:1.5px solid var(--border);padding:12px 22px}
+.btn-outline:hover{border-color:var(--primary);background:var(--bg)}
+.btn-ghost{background:transparent;color:var(--text-3);padding:9px 14px;font-size:14px}
+.btn-ghost:hover{background:var(--bg);color:var(--text)}
+.btn-sm{padding:8px 16px;font-size:13px;border-radius:8px}
+.btn-lg{padding:16px 36px;font-size:17px;border-radius:12px}
+.btn-icon-sm{width:34px;height:34px;padding:0;border-radius:8px;background:var(--bg);border:1.5px solid var(--border);color:var(--text-3);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--transition)}
+.btn-icon-sm:hover{border-color:var(--primary);color:var(--primary)}
+.btn-icon-sm.active{background:var(--primary);border-color:var(--primary);color:#fff}
+/* ─ NAV ─ */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center}
+.nav-inner{display:flex;align-items:center;max-width:1280px;margin:0 auto;padding:0 28px;width:100%;gap:4px}
+.nav-brand{text-decoration:none;flex-shrink:0;margin-right:12px}
+.nav-brand-name{font-size:16px;font-weight:800;color:var(--primary);letter-spacing:-0.5px;display:block}
+.nav-brand-by{font-size:9px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--text-4)}
+.nav-link{font-size:14px;font-weight:500;color:var(--text-2);text-decoration:none;padding:8px 12px;border-radius:8px;transition:var(--transition);white-space:nowrap}
+.nav-link:hover,.nav-link.active{color:var(--primary);background:var(--bg)}
+.nav-compare{background:var(--primary);color:#fff;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;transition:var(--transition);display:flex;align-items:center;gap:6px;border:none;font-family:'Inter',sans-serif}
+.nav-compare:hover{background:var(--primary-mid)}
+.nav-dash-btn{background:var(--warm-soft);color:var(--warm);border:1.5px solid var(--warm-border);border-radius:8px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;transition:var(--transition);display:flex;align-items:center;gap:6px;font-family:'Inter',sans-serif}
+.nav-dash-btn:hover{background:var(--warm);color:#fff}
+.nav-sep{width:1px;height:24px;background:var(--border);margin:0 8px;flex-shrink:0}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
+.hamburger span{width:22px;height:2px;background:var(--primary);border-radius:2px;display:block}
+/* ─ HERO ─ */
+#hero{padding-top:64px;background:var(--white);min-height:90vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,0.97) 0%,rgba(255,255,255,0.9) 45%,rgba(255,255,255,0.35) 100%)}
+.hero-content{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:80px 28px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--warm-soft);border:1px solid var(--warm-border);border-radius:20px;padding:6px 14px;margin-bottom:20px}
+.hero-tag-dot{width:6px;height:6px;background:var(--warm);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(1.6)}}
+.hero-tag-text{font-size:12px;font-weight:600;color:var(--warm);letter-spacing:0.2px}
+.hero-h1{font-size:clamp(34px,5vw,64px);font-weight:900;color:var(--primary);letter-spacing:-2px;line-height:1.04;margin-bottom:18px}
+.hero-h1 em{font-style:normal;color:var(--warm)}
+.hero-sub{font-size:17px;color:var(--text-3);line-height:1.75;max-width:460px;margin-bottom:32px}
+.hero-cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+.hero-trust{display:flex;gap:20px;flex-wrap:wrap}
+.hero-trust-i{font-size:13px;color:var(--text-3);font-weight:500;display:flex;align-items:center;gap:6px}
+.hero-card{background:var(--white);border-radius:var(--radius-xl);box-shadow:var(--shadow-xl);overflow:hidden;max-width:360px}
+.hero-card-img{width:100%;height:190px;object-fit:cover}
+.hero-card-body{padding:18px 20px}
+.hero-card-nm{font-size:18px;font-weight:800;color:var(--primary);letter-spacing:-0.3px;margin-bottom:3px}
+.hero-card-loc{font-size:13px;color:var(--text-3);margin-bottom:12px}
+.hero-card-price{font-size:26px;font-weight:900;color:var(--primary);letter-spacing:-1px;margin-bottom:3px}
+.hero-card-psub{font-size:11px;color:var(--text-4);margin-bottom:14px}
+.hero-card-btns{display:flex;gap:8px}
+.hero-floater{position:absolute;background:var(--white);border-radius:var(--radius-lg);padding:11px 15px;box-shadow:var(--shadow-lg);font-size:12px;font-weight:700;color:var(--primary);white-space:nowrap}
+.hf1{bottom:-12px;left:-20px;color:var(--success)}
+.hf2{top:-12px;right:-12px}
+/* ─ TRUST STRIP ─ */
+#trust-strip{background:var(--primary);padding:18px 0}
+.ts-inner{display:flex;justify-content:center;max-width:1280px;margin:0 auto;padding:0 28px;flex-wrap:wrap}
+.ts-item{flex:1;min-width:140px;max-width:220px;text-align:center;padding:10px 16px;border-right:1px solid rgba(255,255,255,0.08)}
+.ts-item:last-child{border-right:none}
+.ts-num{font-size:22px;font-weight:900;color:#fff;letter-spacing:-0.5px}
+.ts-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:rgba(255,255,255,0.4);margin-top:2px}
+/* ─ FAST MOVER ─ */
+.fm-banner{background:linear-gradient(110deg,var(--warm) 0%,#F59E0B 100%);border-radius:var(--radius-xl);padding:22px 28px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;box-shadow:0 4px 20px rgba(232,131,58,0.3);margin-bottom:0}
+/* ─ LAYOUT ─ */
+.container{max-width:1280px;margin:0 auto;padding:0 28px}
+.section{padding:88px 0}
+.section-sm{padding:56px 0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.section-label{font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--warm);margin-bottom:10px;display:block}
+.section-title{font-size:clamp(24px,3.5vw,42px);font-weight:900;color:var(--primary);letter-spacing:-1.5px;line-height:1.1;margin-bottom:12px}
+.section-desc{font-size:16px;color:var(--text-3);line-height:1.75;max-width:540px}
+/* ─ FILTER BAR ─ */
+.filter-bar{background:var(--white);border-radius:var(--radius-xl);padding:18px 22px;box-shadow:var(--shadow);display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:32px}
+.fi{background:var(--bg);border:1.5px solid var(--border);border-radius:9px;padding:10px 14px;font-family:'Inter',sans-serif;font-size:13px;color:var(--text-2);cursor:pointer;transition:var(--transition);appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236B7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:30px}
+.fi:focus{outline:none;border-color:var(--accent)}
+.fi:hover{border-color:var(--primary)}
+.fi-text{background:var(--bg);border:1.5px solid var(--border);border-radius:9px;padding:10px 14px;font-family:'Inter',sans-serif;font-size:13px;color:var(--text-2);transition:var(--transition);flex:1;min-width:180px;outline:none}
+.fi-text:focus{border-color:var(--accent)}
+.fi-text::placeholder{color:var(--text-4)}
+/* ─ ESTATE CARDS ─ */
+.ec{background:var(--white);border-radius:var(--radius-xl);overflow:hidden;border:1px solid var(--border-soft);box-shadow:var(--shadow-xs);transition:var(--transition);cursor:pointer}
+.ec:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+.ec-img-wrap{position:relative;height:210px;overflow:hidden}
+.ec-img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease}
+.ec:hover .ec-img{transform:scale(1.04)}
+.ec-save{position:absolute;top:10px;right:10px;width:34px;height:34px;background:rgba(255,255,255,0.95);border-radius:50%;border:none;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);transition:var(--transition);z-index:2}
+.ec-save:hover{transform:scale(1.1)}
+.ec-save.on{background:var(--primary);color:#fff}
+.ec-compare-btn{position:absolute;top:10px;left:10px;background:rgba(255,255,255,0.92);border:none;cursor:pointer;border-radius:7px;padding:5px 10px;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:var(--primary);transition:var(--transition);z-index:2}
+.ec-compare-btn:hover,.ec-compare-btn.on{background:var(--primary);color:#fff}
+.ec-status-badge{position:absolute;bottom:10px;right:10px;padding:4px 10px;border-radius:6px;font-size:10px;font-weight:700;color:#fff}
+.ec-body{padding:18px}
+.ec-region{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-4);margin-bottom:5px}
+.ec-name{font-size:17px;font-weight:800;color:var(--primary);letter-spacing:-0.3px;margin-bottom:3px}
+.ec-loc{font-size:13px;color:var(--text-3);margin-bottom:12px}
+.ec-price{font-size:22px;font-weight:900;color:var(--primary);letter-spacing:-0.8px}
+.ec-price-from{font-size:11px;color:var(--text-4);margin-bottom:10px}
+.ec-div{border:none;border-top:1px solid var(--border-soft);margin:10px 0}
+.ec-footer{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-3)}
+.ec-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:9px}
+.etag{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:20px;font-size:10px;font-weight:700}
+.etag-g{background:rgba(5,150,105,0.09);color:#059669;border:1px solid rgba(5,150,105,0.18)}
+.etag-b{background:rgba(37,99,235,0.08);color:#2563EB;border:1px solid rgba(37,99,235,0.14)}
+.etag-o{background:rgba(245,158,11,0.09);color:#D97706;border:1px solid rgba(245,158,11,0.18)}
+.etag-r{background:rgba(220,38,38,0.08);color:#DC2626;border:1px solid rgba(220,38,38,0.14)}
+.etag-dim{background:#F3F4F6;color:#6B7280;border:1px solid #E5E7EB}
+.ec-actions{display:flex;gap:8px;margin-top:12px}
+/* ─ MY OPPORTUNITIES DASHBOARD ─ */
+#dashboard{position:fixed;inset:0;z-index:1500;display:none;flex-direction:column;background:var(--bg)}
+#dashboard.open{display:flex}
+.dash-header{height:64px;background:var(--white);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 28px;gap:16px;flex-shrink:0}
+.dash-back{background:none;border:none;font-size:14px;font-weight:600;color:var(--text-2);cursor:pointer;display:flex;align-items:center;gap:6px;padding:8px 12px;border-radius:8px;font-family:'Inter',sans-serif}
+.dash-back:hover{background:var(--bg);color:var(--primary)}
+.dash-title{font-size:16px;font-weight:800;color:var(--primary);letter-spacing:-0.3px}
+.dash-tabs{display:flex;gap:4px}
+.dash-tab{background:none;border:none;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--text-3);padding:8px 16px;border-radius:8px;cursor:pointer;transition:var(--transition)}
+.dash-tab:hover{background:var(--bg);color:var(--primary)}
+.dash-tab.active{background:var(--primary);color:#fff}
+.dash-body{flex:1;overflow-y:auto;padding:32px 28px;max-width:1280px;margin:0 auto;width:100%}
+.dash-section-title{font-size:18px;font-weight:800;color:var(--primary);letter-spacing:-0.3px;margin-bottom:16px;margin-top:8px}
+.dash-empty{text-align:center;padding:48px 24px;color:var(--text-3);background:var(--white);border-radius:var(--radius-xl);border:1.5px dashed var(--border)}
+.dash-empty-icon{font-size:36px;margin-bottom:12px}
+.pkg-progress{background:var(--white);border-radius:var(--radius-xl);padding:24px;border:1px solid var(--border);margin-bottom:24px}
+.pkg-prog-steps{display:flex;align-items:center;gap:0;margin-top:16px}
+.pkg-prog-step{flex:1;text-align:center;position:relative}
+.pkg-prog-step::after{content:'';position:absolute;top:15px;left:50%;right:-50%;height:2px;background:var(--border-soft);z-index:0}
+.pkg-prog-step:last-child::after{display:none}
+.pkg-prog-dot{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;position:relative;z-index:1;margin:0 auto 8px}
+.pkg-prog-dot.done{background:var(--success);color:#fff}
+.pkg-prog-dot.active{background:var(--accent);color:#fff;box-shadow:0 0 0 4px rgba(37,99,235,0.15)}
+.pkg-prog-dot.pending{background:var(--border);color:var(--text-4)}
+.pkg-prog-label{font-size:11px;font-weight:600;color:var(--text-3)}
+.activity-item{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--border-soft)}
+.activity-item:last-child{border-bottom:none}
+.activity-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.activity-text{flex:1;font-size:14px;color:var(--text-2)}
+.activity-time{font-size:12px;color:var(--text-4);flex-shrink:0}
+.rec-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border-soft);transition:var(--transition);cursor:pointer}
+.rec-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.rec-card-img{height:140px;width:100%;object-fit:cover}
+.rec-card-body{padding:14px}
+.rec-card-name{font-size:15px;font-weight:800;color:var(--primary);margin-bottom:3px;letter-spacing:-0.2px}
+.rec-card-price{font-size:14px;color:var(--accent);font-weight:700}
+/* ─ COMPARE PANEL ─ */
+#comparePanel{position:fixed;inset:0;z-index:1600;display:none;flex-direction:column;background:var(--bg)}
+#comparePanel.open{display:flex}
+.cmp-head{height:64px;background:var(--white);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 28px;gap:16px;flex-shrink:0}
+.cmp-title{font-size:16px;font-weight:800;color:var(--primary)}
+.cmp-body{flex:1;overflow-y:auto;padding:28px}
+.cmp-grid{display:grid;gap:1px;background:var(--border);border-radius:var(--radius-lg);overflow:hidden}
+.cmp-cell{background:var(--white);padding:12px 16px;font-size:13px}
+.cmp-cell-header{font-weight:800;color:var(--primary);font-size:14px;background:var(--bg)}
+.cmp-cell-label{color:var(--text-3);font-weight:500;background:var(--bg-warm)}
+.cmp-cell-val{font-weight:600;color:var(--primary)}
+.cmp-cell-best{color:var(--success);font-weight:700}
+/* ─ ESTATE PANEL ─ */
+#estatePanel{position:fixed;inset:0;z-index:1400;display:none;flex-direction:column;background:var(--bg)}
+#estatePanel.open{display:flex}
+.ep-head{height:64px;background:var(--white);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 28px;gap:12px;flex-shrink:0}
+.ep-back-btn{background:none;border:none;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;color:var(--text-2);font-family:'Inter',sans-serif;padding:8px 12px;border-radius:8px}
+.ep-back-btn:hover{background:var(--bg);color:var(--primary)}
+.ep-grid{display:grid;grid-template-columns:1fr 420px;height:calc(100vh - 64px);overflow:hidden}
+.ep-left{overflow-y:auto}
+.ep-right{overflow-y:auto;border-left:1px solid var(--border);background:var(--white)}
+.ep-hero-img{width:100%;height:300px;object-fit:cover;display:block}
+/* Estate detail tabs */
+.ep-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);background:var(--white);padding:0 28px;overflow-x:auto;flex-shrink:0;position:sticky;top:0;z-index:10}
+.ep-tab{font-size:13px;font-weight:600;color:var(--text-3);padding:14px 18px;cursor:pointer;border-bottom:2.5px solid transparent;transition:var(--transition);white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none;font-family:'Inter',sans-serif}
+.ep-tab:hover{color:var(--primary)}
+.ep-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.ep-tab-pane{display:none;padding:28px}
+.ep-tab-pane.active{display:block}
+/* Scores */
+.scores-2x2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.score-card{background:var(--white);border:1.5px solid var(--border-soft);border-radius:var(--radius-lg);padding:18px;text-align:center;box-shadow:var(--shadow-xs)}
+.score-num{font-size:34px;font-weight:900;letter-spacing:-1px}
+.score-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-4);margin-top:3px}
+.score-sub{font-size:11px;color:var(--text-3);margin-top:2px}
+.col-g{color:var(--success)}.col-b{color:var(--accent)}.col-w{color:var(--warm)}
+/* Infrastructure & lifestyle */
+.infra-item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--border-soft)}
+.infra-item:last-child{border-bottom:none}
+.infra-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.infra-body{flex:1}
+.infra-title{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:2px}
+.infra-desc{font-size:12px;color:var(--text-3);line-height:1.55}
+.infra-status{font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;display:inline-block;margin-top:4px}
+.infra-status-active{background:rgba(5,150,105,0.1);color:#059669}
+.infra-status-planned{background:rgba(37,99,235,0.08);color:#2563EB}
+/* Lifestyle bars */
+.li-bar{margin-bottom:12px}
+.li-bar-top{display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px}
+.li-bar-label{font-weight:600;color:var(--text-2)}
+.li-bar-score{font-weight:700;color:var(--primary)}
+.li-bar-track{height:7px;background:var(--border-soft);border-radius:4px;overflow:hidden}
+.li-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--accent),var(--success));transition:width 0.9s ease}
+/* Recommended builders */
+.rb-card{background:var(--white);border:1.5px solid var(--border-soft);border-radius:var(--radius-lg);padding:18px;display:flex;gap:14px;align-items:flex-start;transition:var(--transition)}
+.rb-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
+.rb-logo{width:52px;height:32px;object-fit:contain;flex-shrink:0;opacity:0.8}
+.rb-logo-init{width:44px;height:44px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff;flex-shrink:0}
+.rb-info{flex:1;min-width:0}
+.rb-name{font-size:14px;font-weight:800;color:var(--primary);margin-bottom:3px}
+.rb-tier{font-size:11px;font-weight:600;color:var(--text-3);margin-bottom:6px}
+.rb-match{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--success)}
+.rb-rank{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+/* Package builder in panel */
+.pkg-right{padding:24px}
+.pkg-right-title{font-size:17px;font-weight:800;color:var(--primary);margin-bottom:4px;letter-spacing:-0.3px}
+.pkg-pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.pkg-pill{padding:7px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:var(--transition);background:var(--bg);color:var(--text-2)}
+.pkg-pill:hover,.pkg-pill.on{background:var(--primary);color:#fff;border-color:var(--primary)}
+.pkg-breakdown-rows{display:flex;flex-direction:column;margin-bottom:16px}
+.pkgr{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border-soft);font-size:13px}
+.pkgr:last-child{border-bottom:none}
+.pkgr-label{color:var(--text-2);font-weight:500}
+.pkgr-val{font-weight:700;color:var(--primary)}
+.pkg-total-num{font-size:36px;font-weight:900;color:var(--primary);letter-spacing:-1.5px;margin-bottom:4px}
+.pkg-weekly{font-size:13px;color:var(--text-3);margin-bottom:16px}
+/* Investment reveal */
+.inv-reveal{opacity:0;transform:translateY(12px);transition:opacity 0.4s ease,transform 0.4s ease}
+.inv-reveal.shown{opacity:1;transform:translateY(0)}
+.inv-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-soft)}
+.inv-row:last-child{border-bottom:none}
+.inv-label{font-size:13px;color:var(--text-2)}
+.inv-val{font-size:14px;font-weight:700;color:var(--primary)}
+.inv-pos{color:var(--success)}
+/* Contextual CTA */
+.ctx-cta{border-radius:var(--radius-xl);padding:22px 24px;text-align:center;margin-top:8px}
+.ctx-cta-browse{background:var(--bg);border:1.5px solid var(--border)}
+.ctx-cta-saved{background:var(--accent-soft);border:1.5px solid rgba(37,99,235,0.2)}
+.ctx-cta-pkg{background:var(--warm-soft);border:1.5px solid var(--warm-border)}
+.ctx-cta-ready{background:var(--primary);color:#fff}
+/* Compare bar */
+#cmpBar{position:fixed;bottom:0;left:0;right:0;z-index:900;background:var(--white);border-top:2px solid var(--primary);padding:12px 28px;display:none;align-items:center;gap:14px;box-shadow:0 -8px 30px rgba(0,0,0,0.08);flex-wrap:wrap}
+#cmpBar.show{display:flex}
+.cmpb-item{background:var(--bg);border:1.5px solid var(--border);border-radius:9px;padding:7px 12px;font-size:13px;font-weight:600;color:var(--primary);display:flex;align-items:center;gap:8px}
+.cmpb-x{cursor:pointer;color:var(--text-3);font-size:16px;background:none;border:none;line-height:1}
+.cmpb-x:hover{color:var(--primary)}
+/* Consultants */
+.con-strip{background:var(--warm-soft);border:1.5px solid var(--warm-border);border-radius:var(--radius-xl);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+/* Footer */
+footer{background:var(--primary);padding:52px 0 28px}
+.fi-inner{max-width:1280px;margin:0 auto;padding:0 28px}
+.f-brand{font-size:17px;font-weight:800;color:#fff;letter-spacing:-0.5px;margin-bottom:3px}
+.f-by{font-size:9px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:28px}
+.f-links{display:flex;gap:22px;flex-wrap:wrap;font-size:13px;margin-bottom:28px}
+.f-links a{color:rgba(255,255,255,0.45);text-decoration:none}
+.f-links a:hover{color:rgba(255,255,255,0.75)}
+.f-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;color:rgba(255,255,255,0.28)}
+/* Chat */
+#chatWidget{position:fixed;bottom:80px;right:22px;z-index:9000}
+#chatToggle{width:50px;height:50px;border-radius:50%;background:var(--primary);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:19px;box-shadow:var(--shadow-lg);transition:var(--transition);position:relative}
+#chatToggle:hover{background:var(--primary-mid);transform:scale(1.06)}
+.chat-dot-badge{position:absolute;top:-2px;right:-2px;width:13px;height:13px;background:#ef4444;border-radius:50%;border:2px solid #fff;font-size:7px;font-weight:800;color:#fff;display:flex;align-items:center;justify-content:center}
+#chatPanel{display:none;position:absolute;bottom:62px;right:0;width:288px;background:var(--white);border-radius:16px;box-shadow:var(--shadow-xl);overflow:hidden;border:1px solid var(--border)}
+.cp-head{background:var(--primary);padding:14px 16px;color:#fff}
+.cp-name{font-weight:700;font-size:13px;margin-bottom:2px}
+.cp-status{font-size:11px;opacity:0.65;display:flex;align-items:center;gap:5px}
+.cp-dot{width:6px;height:6px;background:#34D399;border-radius:50%}
+.cp-msg{padding:13px 14px;font-size:12px;color:var(--text-2);line-height:1.6;border-bottom:1px solid var(--border-soft)}
+.cp-form{padding:11px 13px;display:flex;flex-direction:column;gap:6px}
+.cp-inp{border:1.5px solid var(--border);border-radius:7px;padding:8px 11px;font-family:'Inter',sans-serif;font-size:12px;color:var(--text);outline:none}
+.cp-inp:focus{border-color:var(--accent)}
+.cp-send{background:var(--primary);color:#fff;border:none;border-radius:7px;padding:9px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer}
+/* Fade up */
+.fu{opacity:0;transform:translateY(18px);transition:opacity 0.4s ease,transform 0.4s ease}
+.fu.vis{opacity:1;transform:translateY(0)}
+/* Dev panel */
+.dev-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.dev-panel-left{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-xl);padding:32px}
+.dev-panel-right{background:var(--white);border-radius:var(--radius-xl);padding:32px}
+/* Steps */
+.step-card{background:var(--white);border-radius:var(--radius-xl);border:1.5px solid var(--border-soft);padding:28px;transition:var(--transition)}
+.step-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
+/* Responsive */
+@media(max-width:1024px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}.ep-grid{grid-template-columns:1fr}.ep-right{border-left:none;border-top:1px solid var(--border)}}
+@media(max-width:768px){.hero-content,.g2{grid-template-columns:1fr;gap:28px}.hero-card{display:none}.nav-link{display:none}.hamburger{display:flex}.container{padding:0 16px}.section{padding:60px 0}.g3{grid-template-columns:1fr}.dev-grid{grid-template-columns:1fr}.dash-tabs{flex-wrap:wrap}.ep-tabs{padding:0 16px}}
+@media(max-width:480px){.hero-cta-row{flex-direction:column}.hero-h1{font-size:32px}.g4{grid-template-columns:1fr}.filter-bar{flex-direction:column}}
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav id="nav">
+ <div class="nav-inner">
+  <a href="#" class="nav-brand"><span class="nav-brand-name">New Homes Australia</span><span class="nav-brand-by">Powered by ProjX</span></a>
+  <a href="#estates" class="nav-link">Estates</a>
+  <a href="#packages" class="nav-link">Build Package</a>
+  <a href="#how-it-works" class="nav-link">How It Works</a>
+  <div class="nav-sep"></div>
+  <button class="nav-compare" onclick="openComparePanel()" id="navCmp" style="display:none">⊕ Compare <span id="navCmpCount">0</span></button>
+  <button class="nav-compare" onclick="openComparePanel()">⊕ Compare</button>
+  <button class="nav-dash-btn" onclick="openDashboard()">❤️ My Opportunities <span id="navSavedBadge" style="display:none;background:var(--warm);color:#fff;border-radius:10px;padding:1px 7px;font-size:11px;margin-left:2px" id="navSavedN">0</span></button>
+  <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+ </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+ <div class="hero-bg"><img src="img/woodchester.jpg" alt="New home in Queensland"></div>
+ <div class="hero-content">
+  <div>
+   <div class="hero-tag"><span class="hero-tag-dot"></span><span class="hero-tag-text">Australia's New Homes Platform · Exclusive SEQ Access</span></div>
+   <h1 class="hero-h1">Your perfect new<br>home is <em>waiting.</em></h1>
+   <p class="hero-sub">Discover exclusive estates, save your favourites, compare options and build your complete home package — all with expert guidance.</p>
+   <div class="hero-cta-row">
+    <a href="#estates" class="btn btn-primary btn-lg">Explore Estates →</a>
+    <button class="btn btn-outline btn-lg" onclick="openDashboard()">❤️ My Opportunities</button>
+   </div>
+   <div class="hero-trust">
+    <span class="hero-trust-i">✓ Wholesale pricing direct</span>
+    <span class="hero-trust-i">✓ 18 active SEQ estates</span>
+    <span class="hero-trust-i">✓ $0 buyer fees</span>
+   </div>
+  </div>
+  <div style="position:relative">
+   <div class="hero-card">
+    <img src="img/oakland.jpg" alt="Oakland Estate" class="hero-card-img">
+    <div class="hero-card-body">
+     <div style="display:flex;gap:6px;margin-bottom:10px"><span class="etag etag-g">🟢 Title Ready</span><span class="etag etag-o">🚀 Fast Mover</span></div>
+     <div class="hero-card-nm">Oakland Estate</div>
+     <div class="hero-card-loc">Beaudesert · Scenic Rim</div>
+     <div class="hero-card-price">$689,500</div>
+     <div class="hero-card-psub">4 bed · 2 bath · 450m² · Total H&L package</div>
+     <div class="hero-card-btns"><a href="#estates" class="btn btn-primary btn-sm" style="flex:1">Explore →</a><button class="btn btn-outline btn-sm" onclick="saveSingle('oaklandestate','Oakland Estate',689500)">🤍</button></div>
+    </div>
+   </div>
+   <div class="hero-floater hf1">✅ 3 families found homes here this week</div>
+   <div class="hero-floater hf2">⚡ $10k Fast Mover upgrade available</div>
+  </div>
+ </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div id="trust-strip"><div class="ts-inner"><div class="ts-item"><div class="ts-num">18</div><div class="ts-label">Active Estates</div></div><div class="ts-item"><div class="ts-num">4,500+</div><div class="ts-label">Lots Available</div></div><div class="ts-item"><div class="ts-num">12</div><div class="ts-label">Builder Partners</div></div><div class="ts-item"><div class="ts-num">$0</div><div class="ts-label">Buyer Fees</div></div><div class="ts-item"><div class="ts-num">SEQ #1</div><div class="ts-label">Project Marketer</div></div></div></div>
+
+<!-- FAST MOVER -->
+<section style="padding:28px 0;background:var(--white)">
+ <div class="container"><div class="fm-banner"><span style="font-size:34px">🚀</span><div style="flex:1"><div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:5px">Limited Time Offer</div><div style="font-size:19px;font-weight:900;color:#fff;letter-spacing:-0.3px;margin-bottom:3px">Fast Mover Upgrade Credit — Sign within 30 days</div><div style="font-size:13px;color:rgba(255,255,255,0.8)">$10,000 in builder upgrades <em>or</em> $5,000 cashback on settlement. All participating estates.</div></div><a href="#estates" class="btn" style="background:#fff;color:var(--primary);font-weight:800;flex-shrink:0">Browse Estates →</a></div></div>
+</section>
+
+<!-- ESTATES -->
+<section id="estates" class="section">
+ <div class="container">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:28px">
+   <div class="fu">
+    <span class="section-label">Active Opportunities</span>
+    <h2 class="section-title">Discover your perfect location</h2>
+    <p class="section-desc" style="margin-top:8px">Exclusively marketed by New Homes Australia. Best pricing guaranteed.</p>
+   </div>
+   <div style="display:flex;gap:8px;align-items:center" class="fu">
+    <span id="estateCountLbl" style="font-size:13px;color:var(--text-3)"></span>
+   </div>
+  </div>
+  <div class="filter-bar fu">
+   <input type="text" class="fi-text" id="estateSearch" placeholder="🔍  Search suburb, estate or region..." oninput="filterEstates()">
+   <select class="fi" id="regionFilter" onchange="filterEstates()"><option value="">All Regions</option></select>
+   <select class="fi" id="timingFilter" onchange="filterEstates()"><option value="">Any Timing</option><option value="0">🟢 Title Ready</option><option value="3">Within 3 months</option><option value="6">Within 6 months</option><option value="12">Within 12 months</option></select>
+   <select class="fi" id="budgetFilter" onchange="filterEstates()"><option value="">Any Budget</option><option value="500">Under $500k</option><option value="700">$500k–$700k</option><option value="900">$700k–$900k</option><option value="901">$900k+</option></select>
+   <button class="btn btn-ghost btn-sm" onclick="clearFilters()">Clear ×</button>
+  </div>
+  <div class="g3" id="estatesGrid"></div>
+ </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="section" style="background:var(--white)">
+ <div class="container">
+  <div style="text-align:center;max-width:540px;margin:0 auto 44px" class="fu">
+   <span class="section-label">How It Works</span>
+   <h2 class="section-title">The easiest way to buy a new home.</h2>
+  </div>
+  <div class="g4 fu" id="stepsGrid"></div>
+ </div>
+</section>
+
+<!-- PACKAGE BUILDER CTA -->
+<section id="packages" class="section">
+ <div class="container">
+  <div class="g2 fu">
+   <div>
+    <span class="section-label">Build Your Package</span>
+    <h2 class="section-title">See the full picture before you commit.</h2>
+    <p class="section-desc" style="margin-bottom:24px">Land, build, site costs, driveway, landscaping, fencing — all itemised. No surprises.</p>
+    <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:28px">
+     <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-2)"><span style="color:var(--success);font-weight:700">✓</span>Complete cost breakdown with all allowances</li>
+     <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-2)"><span style="color:var(--success);font-weight:700">✓</span>Live weekly repayment at current interest rates</li>
+     <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-2)"><span style="color:var(--success);font-weight:700">✓</span>Recommended builder partners ranked for your lot</li>
+     <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-2)"><span style="color:var(--success);font-weight:700">✓</span>Save and compare multiple packages</li>
+    </ul>
+    <a href="#estates" class="btn btn-primary">Start with an Estate →</a>
+   </div>
+   <div style="background:var(--white);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg)">
+    <div style="background:var(--primary);padding:24px 28px"><div style="font-size:20px;font-weight:800;color:#fff;letter-spacing:-0.5px;margin-bottom:3px">Sample Package</div><div style="font-size:12px;color:rgba(255,255,255,0.5)">Oakland Estate · Lot 14 · FRD Hampton 230</div></div>
+    <div style="padding:24px 28px" id="samplePkg"></div>
+    <div style="padding:0 28px 24px;display:flex;gap:10px"><a href="#estates" class="btn btn-primary btn-sm" style="flex:1;justify-content:center">Build My Package →</a></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" style="background:var(--white)">
+ <div class="container">
+  <div style="text-align:center;max-width:500px;margin:0 auto 40px" class="fu">
+   <span class="section-label">Real Buyers</span>
+   <h2 class="section-title">Thousands of Queenslanders found their home through us.</h2>
+  </div>
+  <div class="g3 fu" id="testiGrid"></div>
+ </div>
+</section>
+
+<!-- PARTNER LOGOS -->
+<section style="padding:36px 0;background:var(--bg)">
+ <div class="container">
+  <div style="text-align:center;font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--text-4);margin-bottom:20px">Founding Builder Partners</div>
+  <div style="display:flex;justify-content:center;gap:32px;flex-wrap:wrap;align-items:center" id="partnerLogos"></div>
+ </div>
+</section>
+
+<!-- CONSULTANT STRIP -->
+<section id="talk-to-us" class="section-sm" style="background:var(--white)">
+ <div class="container">
+  <div class="con-strip fu">
+   <div style="flex:1">
+    <div style="font-size:20px;font-weight:800;color:var(--primary);letter-spacing:-0.3px;margin-bottom:5px">Talk to a Property Consultant — it's free.</div>
+    <div style="font-size:14px;color:var(--text-3)">Our consultants know your saved estates and package before you call. No cold pitch. Just helpful guidance.</div>
+   </div>
+   <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;flex-shrink:0">
+    <div style="display:flex">${['M','S','D'].map(l=>`<div style="width:40px;height:40px;border-radius:50%;background:var(--primary-mid);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff;border:3px solid var(--white);margin-left:-8px;first:margin-left:0">${l}</div>`).join('')}</div>
+    <button class="btn btn-primary" onclick="document.getElementById('chatPanel').style.display='block'">Book a Strategy Session →</button>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- DEVELOPER ACCESS -->
+<section id="developer-access" style="background:var(--primary);padding:72px 0">
+ <div class="container">
+  <div class="dev-grid">
+   <div class="dev-panel-left">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:12px">Existing Developer</div>
+    <h3 style="font-size:22px;font-weight:800;color:#fff;letter-spacing:-0.5px;margin-bottom:10px">Developer Portal Access</h3>
+    <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:22px">Real-time sales pipeline, lot availability and buyer intelligence for your project.</p>
+    <a href="mailto:info@projxaustralia.com.au?subject=Developer Portal Access" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);color:#fff;padding:11px 20px;border-radius:9px;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,0.18)">→ Login to Portal</a>
+   </div>
+   <div class="dev-panel-right">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--warm);margin-bottom:12px">New Developer</div>
+    <h3 style="font-size:22px;font-weight:800;color:var(--primary);letter-spacing:-0.5px;margin-bottom:10px">Partner with New Homes Australia</h3>
+    <p style="font-size:13px;color:var(--text-3);line-height:1.75;margin-bottom:20px">Have a land subdivision or residential development? Talk to ProjX.</p>
+    <form id="devForm" onsubmit="submitDevForm(event)">
+     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px"><input type="text" id="devN" placeholder="Full name *" required class="fi-text" style="font-size:13px;padding:9px 12px"><input type="text" id="devC" placeholder="Company *" required class="fi-text" style="font-size:13px;padding:9px 12px"></div>
+     <input type="email" id="devE" placeholder="Email *" required class="fi-text" style="width:100%;font-size:13px;padding:9px 12px;margin-bottom:8px">
+     <input type="tel" id="devP" placeholder="Phone *" required class="fi-text" style="width:100%;font-size:13px;padding:9px 12px;margin-bottom:8px">
+     <input type="text" id="devS" placeholder="Site / suburb" class="fi-text" style="width:100%;font-size:13px;padding:9px 12px;margin-bottom:12px">
+     <button type="submit" class="btn btn-warm" style="width:100%">Register Developer Interest →</button>
+    </form>
+    <div id="devOk" style="display:none;text-align:center;padding:14px 0"><div style="font-size:26px;margin-bottom:8px">✅</div><div style="font-weight:700;color:var(--primary)">Registered. A director will be in touch shortly.</div></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+ <div class="fi-inner">
+  <div class="f-brand">New Homes Australia</div>
+  <div class="f-by">Powered by ProjX Group Australia</div>
+  <div class="f-links"><a href="#estates">Estates</a><a href="#packages">Build Package</a><a href="#how-it-works">How It Works</a><a href="#talk-to-us">Talk to Us</a><a href="#developer-access">Developers</a><a href="mailto:info@projxaustralia.com.au">Contact</a></div>
+  <div class="f-bottom"><div>Prices indicative only. Images for illustration. Operated by ProjX Group Australia Pty Ltd. © 2026</div><div>info@projxaustralia.com.au</div></div>
+ </div>
+</footer>
+
+<!-- MY OPPORTUNITIES DASHBOARD -->
+<div id="dashboard">
+ <div class="dash-header">
+  <button class="dash-back" onclick="closeDashboard()">← Back</button>
+  <div class="dash-title">My Opportunities</div>
+  <div class="dash-tabs">
+   <button class="dash-tab active" onclick="switchDashTab('saved',this)">❤️ Saved</button>
+   <button class="dash-tab" onclick="switchDashTab('packages',this)">📦 Packages</button>
+   <button class="dash-tab" onclick="switchDashTab('activity',this)">🕐 Activity</button>
+   <button class="dash-tab" onclick="switchDashTab('recommended',this)">✨ Recommended</button>
+  </div>
+ </div>
+ <div class="dash-body">
+  <!-- Journey progress -->
+  <div class="pkg-progress" id="journeyProgress"></div>
+  <div id="dashContent"></div>
+ </div>
+</div>
+
+<!-- COMPARE PANEL -->
+<div id="comparePanel">
+ <div class="cmp-head">
+  <button class="ep-back-btn" onclick="closeComparePanel()">← Back</button>
+  <div class="cmp-title">Estate Comparison</div>
+  <div style="margin-left:auto;display:flex;gap:10px">
+   <button class="btn btn-outline btn-sm" onclick="clearCompare()">Clear All</button>
+   <button class="btn btn-primary btn-sm" onclick="closeComparePanel()">Done</button>
+  </div>
+ </div>
+ <div class="cmp-body"><div id="compareContent"></div></div>
+</div>
+
+<!-- ESTATE DETAIL PANEL -->
+<div id="estatePanel">
+ <div class="ep-head">
+  <button class="ep-back-btn" onclick="closeEstatePanel()">← Estates</button>
+  <div style="font-size:15px;font-weight:800;color:var(--primary)" id="epHeadTitle"></div>
+  <div style="margin-left:auto;display:flex;gap:8px">
+   <button class="btn-icon-sm" id="epSaveBtn" onclick="toggleSavePanel()" title="Save this estate">🤍</button>
+   <button class="btn-icon-sm" id="epCmpBtn" onclick="toggleComparePanel()" title="Add to compare">⊕</button>
+   <button class="btn btn-primary btn-sm" onclick="openChatP()">Talk to Us →</button>
+  </div>
+ </div>
+ <div class="ep-grid">
+  <!-- LEFT -->
+  <div class="ep-left">
+   <img id="epImg" src="" alt="" class="ep-hero-img">
+   <div class="ep-tabs" id="epTabs">
+    <button class="ep-tab active" onclick="switchEpTab('overview',this)">Overview</button>
+    <button class="ep-tab" onclick="switchEpTab('lifestyle',this)">Lifestyle</button>
+    <button class="ep-tab" onclick="switchEpTab('investment',this)">Investment</button>
+    <button class="ep-tab" onclick="switchEpTab('infrastructure',this)">Infrastructure</button>
+    <button class="ep-tab" onclick="switchEpTab('builders',this)">Builders</button>
+   </div>
+   <div id="epTabContent"></div>
+  </div>
+  <!-- RIGHT: Package builder -->
+  <div class="ep-right" id="epRight"></div>
+ </div>
+</div>
+
+<!-- COMPARE BAR -->
+<div id="cmpBar">
+ <span style="font-size:14px;font-weight:700;color:var(--primary);flex-shrink:0">Compare</span>
+ <div id="cmpBarItems" style="display:flex;gap:8px;flex:1;flex-wrap:wrap"></div>
+ <button class="btn btn-outline btn-sm" onclick="clearCompare()">Clear</button>
+ <button class="btn btn-primary btn-sm" onclick="openComparePanel()">Compare Now →</button>
+</div>
+
+<!-- CHAT -->
+<div id="chatWidget">
+ <button id="chatToggle" onclick="toggleChat()">💬<span class="chat-dot-badge">1</span></button>
+ <div id="chatPanel">
+  <div class="cp-head"><div class="cp-name">New Homes Australia</div><div class="cp-status"><span class="cp-dot"></span>Property Consultants · Online</div></div>
+  <div class="cp-msg">G'day 👋 Drop your details and a consultant will reach out within the hour with tailored recommendations.</div>
+  <div class="cp-form" id="cpForm">
+   <input class="cp-inp" id="cpName" placeholder="Your name">
+   <input class="cp-inp" id="cpPhone" type="tel" placeholder="Phone number">
+   <input class="cp-inp" id="cpMsg" placeholder="What are you looking for?">
+   <button class="cp-send" onclick="submitChat()">Send →</button>
+  </div>
+ </div>
+</div>
+<script>
+// ─── STATE & STORAGE ─────────────────────────────────────────────────────────
+var PROJECTS=[],BUILDERS=[],DESIGNS=[],BUILDER_LOGOS={};
+var CHEAPEST_BUILD=245000;
+
+var NHA = {
+  saved: JSON.parse(localStorage.getItem('nha4_saved')||'[]'),
+  packages: JSON.parse(localStorage.getItem('nha4_pkgs')||'[]'),
+  activity: JSON.parse(localStorage.getItem('nha4_activity')||'[]'),
+  compare: [],
+  currentEstate: null,
+  epTab: 'overview',
+  pkgLot: null,
+  pkgDesign: null,
+  pkgIntelShown: false,
+  journeyStage: 0, // 0=browse,1=saved,2=package,3=compared,4=consult
+};
+
+function save(){localStorage.setItem('nha4_saved',JSON.stringify(NHA.saved));localStorage.setItem('nha4_pkgs',JSON.stringify(NHA.packages));localStorage.setItem('nha4_activity',JSON.stringify(NHA.activity.slice(0,20)));}
+function track(icon,text,bg){NHA.activity.unshift({icon,text,bg,time:Date.now()});save();}
+function isSaved(id){return NHA.saved.some(function(s){return s.id===id;});}
+function isCompared(id){return NHA.compare.some(function(c){return c.id===id;});}
+function fmt(n){return '$'+Math.round(n).toLocaleString();}
+function fmtK(n){return '$'+Math.round(n/1000)+'k';}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+// ─── DATA LOAD ────────────────────────────────────────────────────────────────
+fetch('./data.json').then(r=>r.json()).then(d=>{
+  PROJECTS=d.PROJECTS||[];BUILDERS=d.BUILDERS||[];DESIGNS=d.DESIGNS||[];BUILDER_LOGOS=d.BUILDER_LOGOS||{};
+  if(DESIGNS.length)CHEAPEST_BUILD=Math.min(...DESIGNS.map(d=>{var n=parseInt((d.price||'0').replace(/[^0-9]/g,''));return isNaN(n)?999999:n;}));
+  init();
+}).catch(()=>init());
+
+function init(){
+  populateRegions();
+  renderEstates(PROJECTS);
+  renderSteps();
+  renderTesti();
+  renderPartners();
+  renderSamplePkg();
+  updateNav();
+  initObs();
+  // Fix consultant strip template issue
+  var cs=document.querySelector('.con-strip');
+  if(cs){var avs=cs.querySelector('div[style*="display:flex"]');if(avs){avs.innerHTML='<div style="display:flex;margin-right:8px"><div style="width:40px;height:40px;border-radius:50%;background:var(--primary-mid);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff;border:3px solid var(--white)">M</div><div style="width:40px;height:40px;border-radius:50%;background:var(--primary-mid);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff;border:3px solid var(--white);margin-left:-8px">S</div><div style="width:40px;height:40px;border-radius:50%;background:var(--primary-mid);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff;border:3px solid var(--white);margin-left:-8px">D</div></div>';}}
+}
+
+// ─── RENDER FUNCTIONS ─────────────────────────────────────────────────────────
+function renderSteps(){
+  var steps=[
+    {icon:'🗺️',n:'01',title:'Discover Estates',desc:'Browse exclusive estates. Save your favourites. Compare side by side.'},
+    {icon:'📦',n:'02',title:'Build Your Package',desc:'Complete cost breakdown — land, build, site costs. All itemised, live.'},
+    {icon:'⚡',n:'03',title:'Builder Matching',desc:'Recommended builder partners ranked for your lot, budget and timeline.'},
+    {icon:'🤝',n:'04',title:'Purchase with Guidance',desc:'A consultant with your full profile ready. From review to contract.'}
+  ];
+  var g=document.getElementById('stepsGrid');
+  if(g)g.innerHTML=steps.map(s=>'<div class="step-card fu"><div style="font-size:30px;margin-bottom:14px">'+s.icon+'</div><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-4);margin-bottom:7px">Step '+s.n+'</div><div style="font-size:17px;font-weight:800;color:var(--primary);margin-bottom:8px;letter-spacing:-0.3px">'+s.title+'</div><div style="font-size:13px;color:var(--text-3);line-height:1.65">'+s.desc+'</div></div>').join('');
+}
+
+function renderTesti(){
+  var g=document.getElementById('testiGrid');
+  if(!g)return;
+  var testi=[
+    {s:'⭐⭐⭐⭐⭐',q:'We had no idea where to start. New Homes Australia showed us three great options in one call. Signed contracts four weeks later. Best pricing anywhere.',a:'Sarah & James M.',e:'Woodchester Estate, Gatton'},
+    {s:'⭐⭐⭐⭐⭐',q:'As investors, certainty matters. Fixed price, confirmed timeline, the team handled everything. Already referred two colleagues.',a:'David & Lin T.',e:'Oakland Estate, Beaudesert'},
+    {s:'⭐⭐⭐⭐⭐',q:'The package builder showed us every cost before we spoke to anyone. Compare three builders side by side — brilliant experience.',a:'Michael R.',e:'Sorensen Rise, Gympie'}
+  ];
+  g.innerHTML=testi.map(t=>'<div class="fu" style="background:var(--white);border-radius:var(--radius-xl);padding:26px;border:1px solid var(--border-soft);box-shadow:0 1px 3px rgba(0,0,0,0.05)"><div style="font-size:14px;margin-bottom:11px">'+t.s+'</div><p style="font-size:14px;color:var(--text-2);line-height:1.75;font-style:italic;margin-bottom:14px">"'+t.q+'"</p><div style="font-size:13px;font-weight:700;color:var(--primary)">'+t.a+'</div><div style="font-size:12px;color:var(--text-3)">'+t.e+'</div></div>').join('');
+}
+
+function renderPartners(){
+  var g=document.getElementById('partnerLogos');
+  if(!g||!BUILDERS)return;
+  g.innerHTML=BUILDERS.filter(b=>b.tierGroup==='premium').map(b=>{
+    var logo=BUILDER_LOGOS[b.id]||'';
+    return logo?'<img src="'+logo+'" alt="'+b.name+'" style="height:28px;opacity:0.38;filter:grayscale(100%);transition:all 0.2s" onmouseover="this.style.opacity=0.7;this.style.filter=\'none\'" onmouseout="this.style.opacity=0.38;this.style.filter=\'grayscale(100%)\'" onerror="this.style.display=\'none\'">':'<div style="font-size:12px;font-weight:700;color:var(--text-4)">'+b.name+'</div>';
+  }).join('');
+}
+
+function renderSamplePkg(){
+  var g=document.getElementById('samplePkg');
+  if(!g)return;
+  var rows=[{l:'Land Price',v:fmt(425000)},{l:'Build Contract (FRD Hampton 230)',v:fmt(264500)},{l:'Site Cost Allowance',v:fmt(8500)},{l:'Driveway',v:fmt(4200)},{l:'Landscaping',v:fmt(6000)},{l:'Fencing',v:fmt(3800)}];
+  var total=425000+264500+8500+4200+6000+3800;
+  g.innerHTML=rows.map(r=>'<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border-soft);font-size:13px"><span style="color:var(--text-2)">'+r.l+'</span><span style="font-weight:700;color:var(--primary)">'+r.v+'</span></div>').join('')+'<div style="display:flex;justify-content:space-between;padding:12px 0 0;font-size:18px"><span style="font-weight:800;color:var(--primary)">Total Package</span><span style="font-weight:900;color:var(--primary);letter-spacing:-0.5px">'+fmt(total)+'</span></div><div style="font-size:12px;color:var(--text-3);text-align:right;margin-top:3px">Est. $'+(Math.round(total*0.95*0.063/52))+'/week · 6.1% · 30yr · 10% deposit</div>';
+}
+
+// ─── ESTATE CARDS ─────────────────────────────────────────────────────────────
+function tbadge(m){if(m===0)return'<span class="etag etag-g">🟢 Title Ready</span>';if(m<=3)return'<span class="etag etag-b">🔵 '+m+'mo</span>';if(m<=6)return'<span class="etag etag-o">🟡 '+m+'mo</span>';return'<span class="etag etag-dim">⚪ '+m+'mo</span>';}
+function ubadge(p){if(p.urgency==='hot')return'<span class="etag etag-r">🔥 '+esc(p.urgencyLabel||'')+'</span>';if(p.urgency==='new')return'<span class="etag etag-g">✨ '+esc(p.urgencyLabel||'')+'</span>';if(p.urgency==='active')return'<span class="etag etag-b">📈 '+esc(p.urgencyLabel||'')+'</span>';return'';}
+
+function renderEstates(projects){
+  var g=document.getElementById('estatesGrid'),cnt=document.getElementById('estateCountLbl');
+  if(!g)return;
+  if(cnt)cnt.textContent=projects.length+' estate'+(projects.length!==1?'s':'')+' available';
+  if(!projects.length){g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:60px 24px;color:var(--text-3)"><div style="font-size:38px;margin-bottom:12px">🔍</div><div style="font-size:17px;font-weight:700;color:var(--text-2);margin-bottom:6px">No estates match</div><button class="btn btn-outline btn-sm" onclick="clearFilters()">Clear Filters</button></div>';return;}
+  g.innerHTML=projects.map(p=>{
+    var pkg=p.minPrice>0?'From '+fmt(p.minPrice+CHEAPEST_BUILD):'From TBA';
+    var sv=isSaved(p.id),cp=isCompared(p.id);
+    var status=p.minPrice>0?'available':'coming-soon';
+    return'<div class="ec fu" id="ec-'+p.id+'">'
+      +'<div class="ec-img-wrap">'
+      +'<img src="img/'+p.id+'.jpg" alt="'+esc(p.name)+'" class="ec-img" loading="lazy" onerror="this.src=\'img/oakland.jpg\'">'
+      +'<button class="ec-compare-btn'+(cp?' on':'')+'" onclick="toggleCmp(event,\''+p.id+'\',\''+esc(p.name)+'\')">'+(cp?'✓ In Compare':'⊕ Compare')+'</button>'
+      +'<button class="ec-save'+(sv?' on':'')+'" onclick="toggleSave(event,\''+p.id+'\',\''+esc(p.name)+'\','+(p.minPrice>0?p.minPrice+CHEAPEST_BUILD:0)+')">'+(sv?'❤️':'🤍')+'</button>'
+      +'<div class="ec-status-badge" style="background:'+(status==='available'?'rgba(5,150,105,0.85)':'rgba(217,119,6,0.85)')+'">'+(status==='available'?'✓ Available':'Coming Soon')+'</div>'
+      +'</div>'
+      +'<div class="ec-body">'
+      +'<div class="ec-region">'+esc(p.region)+'</div>'
+      +'<div class="ec-name">'+esc(p.name)+'</div>'
+      +'<div class="ec-loc">'+esc(p.suburb)+', '+esc(p.region)+'</div>'
+      +'<div class="ec-price">'+pkg+'</div>'
+      +'<div class="ec-price-from">'+(p.minPrice>0?'Land from '+fmtK(p.minPrice)+' · '+CHEAPEST_BUILD/1000+'k+ build':'Pricing TBA')+'</div>'
+      +'<hr class="ec-div">'
+      +'<div class="ec-footer"><span>'+p.availLots+' lots</span>'+(p.absorption>50?'<span style="color:var(--warm);font-weight:700">'+p.absorption+'% sold</span>':'')+'</div>'
+      +'<div class="ec-tags">'+tbadge(p.monthsToTitle||12)+ubadge(p)+(p.stageLabel?'<span class="etag etag-dim">'+esc(p.stageLabel)+'</span>':'')+'<span class="etag etag-o">🚀 Fast Mover</span></div>'
+      +'<div class="ec-actions"><button class="btn btn-primary btn-sm" style="flex:1" onclick="openEstate(\''+p.id+'\')">Explore →</button><button class="btn btn-outline btn-sm" onclick="toggleSave(event,\''+p.id+'\',\''+esc(p.name)+'\','+(p.minPrice>0?p.minPrice+CHEAPEST_BUILD:0)+')">'+(sv?'❤️ Saved':'🤍 Save')+'</button></div>'
+      +'</div></div>';
+  }).join('');
+  initObs();
+}
+
+function populateRegions(){
+  var s=document.getElementById('regionFilter');
+  if(!s)return;
+  var rr=[...new Set(PROJECTS.map(p=>p.region))].sort();
+  rr.forEach(r=>{var o=document.createElement('option');o.value=r;o.textContent=r;s.appendChild(o);});
+}
+
+function filterEstates(){
+  var q=(document.getElementById('estateSearch').value||'').toLowerCase().trim();
+  var region=document.getElementById('regionFilter').value;
+  var timing=document.getElementById('timingFilter').value;
+  var budget=document.getElementById('budgetFilter').value;
+  var f=PROJECTS.filter(p=>{
+    if(q&&![p.name,p.suburb,p.region].some(v=>(v||'').toLowerCase().includes(q)))return false;
+    if(region&&p.region!==region)return false;
+    if(timing){var m=p.monthsToTitle!==undefined?p.monthsToTitle:12;if(m>parseInt(timing))return false;}
+    if(budget&&budget!=='901'){var pkg=(p.minPrice||0)+CHEAPEST_BUILD;if(p.minPrice>0&&pkg>parseInt(budget)*1000)return false;}
+    if(budget==='901'){var pkg2=(p.minPrice||0)+CHEAPEST_BUILD;if(p.minPrice>0&&pkg2<900000)return false;}
+    return true;
+  });
+  renderEstates(f);
+}
+function clearFilters(){['estateSearch','regionFilter','timingFilter','budgetFilter'].forEach(id=>{var el=document.getElementById(id);if(el)el.value='';});renderEstates(PROJECTS);}
+
+// ─── SAVE SYSTEM ──────────────────────────────────────────────────────────────
+function toggleSave(e,id,name,price){
+  if(e)e.stopPropagation();
+  var idx=NHA.saved.findIndex(s=>s.id===id);
+  if(idx>-1){NHA.saved.splice(idx,1);track('🗑️','Removed '+name+' from saved','#FEF2F2');}
+  else{NHA.saved.push({id,name,price,savedAt:Date.now()});track('❤️','Saved '+name,'rgba(232,131,58,0.1)');if(NHA.journeyStage<1)NHA.journeyStage=1;}
+  save();updateNav();renderEstates(document.getElementById('estateSearch').value?PROJECTS.filter(p=>p.name.toLowerCase().includes(document.getElementById('estateSearch').value.toLowerCase())):PROJECTS);
+}
+function saveSingle(id,name,price){if(!isSaved(id)){NHA.saved.push({id,name,price,savedAt:Date.now()});track('❤️','Saved '+name,'rgba(232,131,58,0.1)');save();updateNav();}}
+function toggleSavePanel(){if(!NHA.currentEstate)return;toggleSave(null,NHA.currentEstate.id,NHA.currentEstate.name,(NHA.currentEstate.minPrice||0)+CHEAPEST_BUILD);document.getElementById('epSaveBtn').textContent=isSaved(NHA.currentEstate.id)?'❤️':'🤍';}
+
+// ─── COMPARE SYSTEM ───────────────────────────────────────────────────────────
+function toggleCmp(e,id,name){
+  if(e)e.stopPropagation();
+  var idx=NHA.compare.findIndex(c=>c.id===id);
+  if(idx>-1)NHA.compare.splice(idx,1);
+  else if(NHA.compare.length<4){var p=PROJECTS.find(p=>p.id===id);if(p)NHA.compare.push({id,name,p});if(NHA.journeyStage<3)NHA.journeyStage=3;}
+  updateCmpBar();renderEstates(PROJECTS);
+}
+function toggleComparePanel(){if(!NHA.currentEstate)return;toggleCmp(null,NHA.currentEstate.id,NHA.currentEstate.name);document.getElementById('epCmpBtn').classList.toggle('active',isCompared(NHA.currentEstate.id));}
+function updateCmpBar(){
+  var bar=document.getElementById('cmpBar'),items=document.getElementById('cmpBarItems');
+  if(NHA.compare.length>0){bar.classList.add('show');}else{bar.classList.remove('show');}
+  if(items)items.innerHTML=NHA.compare.map(c=>'<div class="cmpb-item">'+esc(c.name)+'<button class="cmpb-x" onclick="toggleCmp(null,\''+c.id+'\',\'\')">×</button></div>').join('');
+  // Update nav compare button
+  var navCmp=document.getElementById('navCmp');
+  var navCmpCount=document.getElementById('navCmpCount');
+  if(navCmp&&navCmpCount){navCmpCount.textContent=NHA.compare.length;navCmp.style.display=NHA.compare.length>0?'flex':'none';}
+}
+function clearCompare(){NHA.compare=[];updateCmpBar();renderEstates(PROJECTS);}
+function openComparePanel(){
+  if(NHA.compare.length<2){alert('Select at least 2 estates to compare.');return;}
+  var panel=document.getElementById('comparePanel');
+  if(panel)panel.classList.add('open');
+  renderCompare();
+}
+function closeComparePanel(){var p=document.getElementById('comparePanel');if(p)p.classList.remove('open');}
+function renderCompare(){
+  var content=document.getElementById('compareContent');
+  if(!content||!NHA.compare.length)return;
+  var fields=[
+    {label:'Starting Package',fn:p=>p.minPrice>0?fmt(p.minPrice+CHEAPEST_BUILD):'TBA'},
+    {label:'Land From',fn:p=>p.minPrice>0?fmtK(p.minPrice):'TBA'},
+    {label:'Available Lots',fn:p=>p.availLots+' lots'},
+    {label:'Region',fn:p=>p.region},
+    {label:'Land Timing',fn:p=>p.monthsToTitle===0?'✅ Title Ready':p.monthsToTitle+'mo'},
+    {label:'Stage',fn:p=>p.stageLabel||'Stage 1'},
+    {label:'Urgency',fn:p=>p.urgencyLabel||'—'},
+    {label:'Absorption',fn:p=>p.absorption>0?p.absorption+'% sold':'Pre-Release'},
+  ];
+  var cols=NHA.compare.length+1;
+  content.innerHTML='<div style="display:grid;grid-template-columns:180px '+NHA.compare.map(()=>'1fr').join(' ')+';gap:1px;background:var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:20px">'
+    +'<div class="cmp-cell cmp-cell-label" style="font-weight:700;color:var(--text-3)">Feature</div>'
+    +NHA.compare.map(c=>'<div class="cmp-cell cmp-cell-header"><div style="font-size:15px;font-weight:800;color:var(--primary)">'+esc(c.name)+'</div><div style="font-size:12px;color:var(--text-3)">'+esc(c.p.suburb)+', '+esc(c.p.region)+'</div></div>').join('')
+    +fields.map(f=>'<div class="cmp-cell cmp-cell-label">'+f.label+'</div>'+NHA.compare.map(c=>'<div class="cmp-cell cmp-cell-val">'+f.fn(c.p)+'</div>').join('')).join('')
+    +'</div>'
+    +'<div style="display:flex;gap:10px;flex-wrap:wrap">'+NHA.compare.map(c=>'<button class="btn btn-primary btn-sm" onclick="openEstate(\''+c.id+'\');closeComparePanel()" style="flex:1">Explore '+esc(c.name)+' →</button>').join('')+'</div>';
+  track('⊖','Compared '+NHA.compare.map(c=>c.name).join(' vs '),'rgba(37,99,235,0.08)');
+}
+
+// ─── DASHBOARD ────────────────────────────────────────────────────────────────
+function openDashboard(){
+  var d=document.getElementById('dashboard');
+  if(d){d.style.display='flex';document.body.style.overflow='hidden';}
+  renderJourneyProgress();
+  switchDashTab('saved',document.querySelector('.dash-tab'));
+}
+function closeDashboard(){
+  var d=document.getElementById('dashboard');
+  if(d)d.style.display='none';
+  document.body.style.overflow='';
+}
+function renderJourneyProgress(){
+  var stages=['Browse','Save','Package','Compare','Consult'];
+  var stage=NHA.journeyStage;
+  var jp=document.getElementById('journeyProgress');
+  if(!jp)return;
+  jp.innerHTML='<div style="font-size:14px;font-weight:700;color:var(--primary);margin-bottom:14px">Your Journey</div>'
+    +'<div class="pkg-prog-steps">'+stages.map((s,i)=>'<div class="pkg-prog-step"><div class="pkg-prog-dot '+(i<stage?'done':i===stage?'active':'pending')+'">'+(i<stage?'✓':i+1)+'</div><div class="pkg-prog-label">'+s+'</div></div>').join('')+'</div>'
+    +'<div style="font-size:13px;color:var(--text-3);margin-top:12px">'+[
+      'Start by exploring estates below.',
+      'Great start! Now explore an estate and build a package.',
+      'Package created! Compare it with other options.',
+      'Ready to compare? Open Compare to see your options side by side.',
+      'You\'re ready to speak with a consultant — we have your full profile.'
+    ][Math.min(stage,4)]+'</div>';
+}
+function switchDashTab(tab,el){
+  document.querySelectorAll('.dash-tab').forEach(t=>t.classList.remove('active'));
+  if(el)el.classList.add('active');
+  var c=document.getElementById('dashContent');
+  if(!c)return;
+  if(tab==='saved'){
+    if(!NHA.saved.length){c.innerHTML='<div class="dash-section-title">Saved Estates</div><div class="dash-empty"><div class="dash-empty-icon">❤️</div><div style="font-size:16px;font-weight:700;color:var(--text-2);margin-bottom:6px">No saved estates yet</div><div style="font-size:14px;margin-bottom:16px">Browse estates and tap 🤍 to save your favourites here.</div><a href="#estates" class="btn btn-primary btn-sm" onclick="closeDashboard()">Explore Estates →</a></div>';return;}
+    var grid=NHA.saved.map(s=>{
+      var p=PROJECTS.find(p=>p.id===s.id);
+      return'<div class="rec-card" onclick="closeDashboard();setTimeout(()=>openEstate(\''+s.id+'\'),100)">'
+        +'<img src="img/'+s.id+'.jpg" alt="'+esc(s.name)+'" class="rec-card-img" onerror="this.src=\'img/oakland.jpg\'">'
+        +'<div class="rec-card-body"><div class="rec-card-name">'+esc(s.name)+'</div>'+(s.price>0?'<div class="rec-card-price">From '+fmt(s.price)+'</div>':'')+'<div style="font-size:11px;color:var(--text-3);margin-top:3px">'+(p?esc(p.suburb)+', '+esc(p.region):esc(s.name))+'</div></div></div>';
+    }).join('');
+    c.innerHTML='<div class="dash-section-title">Saved Estates ('+NHA.saved.length+')</div><div class="g3" style="margin-bottom:28px">'+grid+'</div>';
+  }
+  else if(tab==='packages'){
+    if(!NHA.packages.length){c.innerHTML='<div class="dash-section-title">My Packages</div><div class="dash-empty"><div class="dash-empty-icon">📦</div><div style="font-size:16px;font-weight:700;color:var(--text-2);margin-bottom:6px">No packages built yet</div><div style="font-size:14px;margin-bottom:16px">Open an estate and use the package builder to create your first package.</div><a href="#estates" class="btn btn-primary btn-sm" onclick="closeDashboard()">Explore Estates →</a></div>';return;}
+    c.innerHTML='<div class="dash-section-title">My Packages</div>'+NHA.packages.map(pkg=>'<div style="background:var(--white);border-radius:var(--radius-xl);padding:22px;border:1px solid var(--border-soft);margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px"><div><div style="font-size:16px;font-weight:800;color:var(--primary)">'+esc(pkg.estate)+'</div><div style="font-size:13px;color:var(--text-3)">'+esc(pkg.design||'')+'</div></div><div style="text-align:right"><div style="font-size:22px;font-weight:900;color:var(--primary);letter-spacing:-0.8px">'+fmt(pkg.total)+'</div><div style="font-size:12px;color:var(--text-3)">$'+Math.round(pkg.total*0.95*0.063/52)+'/week</div></div></div>').join('');
+  }
+  else if(tab==='activity'){
+    if(!NHA.activity.length){c.innerHTML='<div class="dash-section-title">Recent Activity</div><div class="dash-empty"><div class="dash-empty-icon">🕐</div><div style="font-size:16px;font-weight:700;color:var(--text-2);margin-bottom:6px">No activity yet</div><div style="font-size:14px">Start exploring estates to see your activity here.</div></div>';return;}
+    c.innerHTML='<div class="dash-section-title">Recent Activity</div><div style="background:var(--white);border-radius:var(--radius-xl);padding:8px 18px;border:1px solid var(--border-soft)">'+NHA.activity.map(a=>{var mins=Math.round((Date.now()-a.time)/60000);var timeStr=mins<1?'Just now':mins<60?mins+'m ago':Math.round(mins/60)+'h ago';return'<div class="activity-item"><div class="activity-icon" style="background:'+a.bg+'">'+a.icon+'</div><div class="activity-text">'+esc(a.text)+'</div><div class="activity-time">'+timeStr+'</div></div>';}).join('')+'</div>';
+  }
+  else if(tab==='recommended'){
+    var recs=PROJECTS.filter(p=>!isSaved(p.id)).slice(0,6);
+    if(!recs.length)recs=PROJECTS.slice(0,6);
+    c.innerHTML='<div class="dash-section-title">Recommended for You</div><div class="g3">'+recs.map(p=>'<div class="rec-card" onclick="closeDashboard();setTimeout(()=>openEstate(\''+p.id+'\'),100)"><img src="img/'+p.id+'.jpg" alt="'+esc(p.name)+'" class="rec-card-img" onerror="this.src=\'img/oakland.jpg\'"><div class="rec-card-body"><div class="rec-card-name">'+esc(p.name)+'</div>'+(p.minPrice>0?'<div class="rec-card-price">From '+fmt(p.minPrice+CHEAPEST_BUILD)+'</div>':'')+tbadge(p.monthsToTitle||12)+'</div></div>').join('')+'</div>';
+  }
+}
+
+// ─── ESTATE PANEL ─────────────────────────────────────────────────────────────
+function openEstate(id){
+  var p=PROJECTS.find(p=>p.id===id);
+  if(!p)return;
+  NHA.currentEstate=p;NHA.pkgLot=null;NHA.pkgDesign=null;NHA.pkgIntelShown=false;
+  document.getElementById('epHeadTitle').textContent=p.name;
+  document.getElementById('epImg').src='img/'+p.id+'.jpg';
+  document.getElementById('epImg').onerror=function(){this.src='img/oakland.jpg';};
+  document.getElementById('epSaveBtn').textContent=isSaved(p.id)?'❤️':'🤍';
+  document.getElementById('epCmpBtn').classList.toggle('active',isCompared(p.id));
+  var panel=document.getElementById('estatePanel');
+  if(panel){panel.classList.add('open');document.body.style.overflow='hidden';}
+  switchEpTab('overview',document.querySelector('.ep-tab'));
+  renderEpRight();
+  track('👁️','Viewed '+p.name,'rgba(37,99,235,0.06)');
+  // Intel reveals 1.8s after opening
+  setTimeout(function(){
+    var scoresEl=document.getElementById('epScoresReveal');
+    if(scoresEl)scoresEl.classList.add('shown');
+  },1800);
+}
+function closeEstatePanel(){
+  var p=document.getElementById('estatePanel');
+  if(p)p.classList.remove('open');
+  document.body.style.overflow='';
+  NHA.currentEstate=null;
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(document.getElementById('estatePanel')&&document.getElementById('estatePanel').classList.contains('open'))closeEstatePanel();else if(document.getElementById('comparePanel')&&document.getElementById('comparePanel').classList.contains('open'))closeComparePanel();}});
+
+function switchEpTab(tab,el){
+  NHA.epTab=tab;
+  document.querySelectorAll('.ep-tab').forEach(t=>t.classList.remove('active'));
+  if(el)el.classList.add('active');
+  else{var tabs=document.querySelectorAll('.ep-tab');tabs.forEach(t=>{if(t.getAttribute('onclick')&&t.getAttribute('onclick').includes("'"+tab+"'"))t.classList.add('active');});}
+  var p=NHA.currentEstate;
+  var tc=document.getElementById('epTabContent');
+  if(!tc||!p)return;
+  if(tab==='overview'){
+    var pkg=p.minPrice>0?fmt(p.minPrice+CHEAPEST_BUILD):'TBA';
+    tc.innerHTML='<div class="ep-tab-pane active">'
+      +'<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px">'+tbadge(p.monthsToTitle||12)+ubadge(p)+(p.stageLabel?'<span class="etag etag-dim">'+esc(p.stageLabel)+'</span>':'')+'</div>'
+      +'<div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-4);margin-bottom:6px">'+esc(p.region)+'</div>'
+      +'<div style="font-size:28px;font-weight:900;color:var(--primary);letter-spacing:-1px;margin-bottom:4px">'+esc(p.name)+'</div>'
+      +'<div style="font-size:15px;color:var(--text-3);margin-bottom:20px">'+esc(p.suburb)+', '+esc(p.region)+'</div>'
+      +'<div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px">'
+      +'<div style="flex:1;min-width:110px;background:var(--bg);border-radius:var(--radius);padding:14px 16px"><div style="font-size:21px;font-weight:900;color:var(--primary);letter-spacing:-0.5px">'+pkg+'</div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-4);margin-top:2px">H&L From</div></div>'
+      +'<div style="flex:1;min-width:110px;background:var(--bg);border-radius:var(--radius);padding:14px 16px"><div style="font-size:21px;font-weight:900;color:var(--success)">'+p.availLots+'</div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-4);margin-top:2px">Lots Available</div></div>'
+      +(p.absorption>0?'<div style="flex:1;min-width:110px;background:var(--bg);border-radius:var(--radius);padding:14px 16px"><div style="font-size:21px;font-weight:900;color:var(--warm)">'+p.absorption+'%</div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-4);margin-top:2px">Sold</div></div>':'')
+      +'</div>'
+      // Intelligence scores — reveal after delay
+      +'<div class="inv-reveal" id="epScoresReveal" style="margin-bottom:20px">'
+      +'<div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-4);margin-bottom:14px">Opportunity Assessment</div>'
+      +'<div class="scores-2x2">'
+      +'<div class="score-card"><div class="score-num col-g">94</div><div class="score-label">Lifestyle</div><div class="score-sub">Schools, commute, amenities</div></div>'
+      +'<div class="score-card"><div class="score-num col-b">'+(p.absorption>50?91:78)+'</div><div class="score-label">Demand</div><div class="score-sub">Absorption & enquiry rate</div></div>'
+      +'<div class="score-card"><div class="score-num col-w">'+(p.minPrice>0&&p.minPrice<400000?88:74)+'</div><div class="score-label">Affordability</div><div class="score-sub">Vs. regional median</div></div>'
+      +'<div class="score-card"><div class="score-num col-g">'+(p.monthsToTitle===0?96:82)+'</div><div class="score-label">Build Certainty</div><div class="score-sub">Title & builder availability</div></div>'
+      +'</div></div>'
+      // Fast Mover
+      +'<div style="background:var(--warm-soft);border:1.5px solid var(--warm-border);border-radius:var(--radius-lg);padding:16px 18px;display:flex;align-items:center;gap:12px">'
+      +'<span style="font-size:22px">🚀</span><div><div style="font-size:14px;font-weight:800;color:var(--primary);margin-bottom:2px">Fast Mover Offer applies</div><div style="font-size:12px;color:var(--text-3)">Sign within 30 days — $10,000 builder upgrades or $5,000 cashback on settlement.</div></div>'
+      +'</div>'
+      +'</div>';
+    setTimeout(function(){var el=document.getElementById('epScoresReveal');if(el)el.classList.add('shown');},1800);
+  }
+  else if(tab==='lifestyle'){
+    tc.innerHTML='<div class="ep-tab-pane active">'
+      +'<div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-4);margin-bottom:16px">Lifestyle Ratings</div>'
+      +[{label:'Schooling',score:82,sub:'State primaries, secondary, private options'},{label:'Commute',score:76,sub:'CBD access via road + transit'},{label:'Shopping & Amenities',score:78,sub:'Supermarkets, retail, dining'},{label:'Infrastructure',score:88,sub:'Roads, NBN, utilities'},{label:'Outdoor & Recreation',score:86,sub:'Parks, trails, natural areas'},{label:'Growth Potential',score:p.absorption>40?91:74,sub:'Projected capital growth 5yr'}].map(l=>'<div class="li-bar"><div class="li-bar-top"><span class="li-bar-label">'+l.label+'</span><span class="li-bar-score">'+l.score+'/100</span></div><div class="li-bar-track"><div class="li-bar-fill" style="width:0%" data-w="'+l.score+'%"></div></div><div style="font-size:11px;color:var(--text-3);margin-top:3px">'+l.sub+'</div></div>').join('')
+      +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px">'
+      +[{label:'Region',val:p.region},{label:'Suburb',val:p.suburb},{label:'Land Timing',val:p.monthsToTitle===0?'Title Ready':p.monthsToTitle+' months'},{label:'Lot Sizes',val:'300m² – 700m²'}].map(f=>'<div style="background:var(--bg);border-radius:var(--radius);padding:13px 15px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-4);margin-bottom:4px">'+f.label+'</div><div style="font-size:14px;font-weight:700;color:var(--primary)">'+f.val+'</div></div>').join('')
+      +'</div></div>';
+    requestAnimationFrame(()=>{tc.querySelectorAll('.li-bar-fill').forEach(el=>{el.style.width=el.getAttribute('data-w');});});
+  }
+  else if(tab==='investment'){
+    var total=p.minPrice>0?p.minPrice+CHEAPEST_BUILD:649500;
+    var weekly=Math.round(total*0.95*0.063/52);
+    var rent=Math.round(total*0.04/52);
+    var yield_=((rent*52/total)*100).toFixed(1);
+    var deposit=Math.round(total*0.1);
+    tc.innerHTML='<div class="ep-tab-pane active">'
+      +'<div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-4);margin-bottom:16px">Investment Intelligence</div>'
+      +[{label:'Estimated Package (H&L)',val:p.minPrice>0?fmt(total):'TBA',pos:false},{label:'Deposit Required (10%)',val:fmt(deposit),pos:false},{label:'Weekly Repayment',val:'$'+weekly+'/week',pos:false},{label:'Est. Rental Appraisal',val:'$'+rent+'/week',pos:true},{label:'Gross Rental Yield',val:yield_+'%',pos:true},{label:'Build Timeframe',val:'28–32 weeks',pos:false},{label:'Title Timing',val:p.monthsToTitle===0?'Ready now':p.monthsToTitle+' months',pos:p.monthsToTitle===0}].map(r=>'<div class="inv-row"><span class="inv-label">'+r.label+'</span><span class="inv-val'+(r.pos?' inv-pos':'')+'">'+r.val+'</span></div>').join('')
+      +'<div style="background:var(--bg);border-radius:var(--radius);padding:14px;margin-top:16px;font-size:12px;color:var(--text-3)">⚠️ Repayment estimates use 6.1% interest rate, 30yr term, 10% deposit. Rental appraisals are indicative. Seek independent financial advice before purchasing.</div>'
+      +'</div>';
+  }
+  else if(tab==='infrastructure'){
+    tc.innerHTML='<div class="ep-tab-pane active">'
+      +'<div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-4);margin-bottom:16px">Infrastructure & Growth Catalysts</div>'
+      +[
+        {icon:'🛣️',title:'Bruce Highway Upgrades',desc:'Ongoing QLD Government investment improving connection times to Brisbane CBD.',status:'active'},
+        {icon:'🏫',title:'New State School Planned',desc:'Proposed primary school within 2km of the estate — DA lodged with Council.',status:'planned'},
+        {icon:'🛒',title:'Major Retail Centre',desc:'Approved Woolworths-anchored centre opening within 12 months at '+p.suburb+'.',status:'planned'},
+        {icon:'⚡',title:'NBN Rollout',desc:'Full fibre NBN available on titled lots. Connection coordinated through NHA.',status:'active'},
+        {icon:'🏥',title:'Medical Centre',desc:'GP clinic and allied health services within 5km. Hospital within 20 minutes.',status:'active'},
+        {icon:'🌳',title:'Parkland & Open Space',desc:'25% of estate reserved for parks, trails and green corridors. Walking paths to school.',status:'active'}
+      ].map(i=>'<div class="infra-item"><div class="infra-icon">'+i.icon+'</div><div class="infra-body"><div class="infra-title">'+i.title+'</div><div class="infra-desc">'+i.desc+'</div><span class="infra-status '+(i.status==='active'?'infra-status-active':'infra-status-planned')+'">'+(i.status==='active'?'✓ Active':'⏳ Planned')+'</span></div></div>').join('')
+      +'</div>';
+  }
+  else if(tab==='builders'){
+    var premiums=BUILDERS.filter(b=>b.tierGroup==='premium');
+    var standards=BUILDERS.filter(b=>b.tierGroup==='standard').slice(0,4);
+    tc.innerHTML='<div class="ep-tab-pane active">'
+      +'<div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-4);margin-bottom:6px">Recommended Builder Partners</div>'
+      +'<div style="font-size:13px;color:var(--text-3);margin-bottom:18px">Ranked by compatibility, value and delivery profile for this estate.</div>'
+      +'<div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px">'
+      +premiums.map((b,i)=>{
+        var logo=BUILDER_LOGOS[b.id]||'';
+        var matchPct=[98,94,91,88][i]||85;
+        var reasons=[['Best price for standard lots','Proven investor-grade product'],['Premium inclusions standard','20+ display homes QLD'],['Fixed price guarantee','1,800+ homes delivered'],['10-week build time','7+ star energy rating']][i]||['Quality builder','SEQ experience'];
+        return'<div class="rb-card"><div>'+(logo?'<img src="'+logo+'" alt="'+b.name+'" class="rb-logo" onerror="this.style.display=\'none\'">':'<div class="rb-logo-init" style="background:'+b.color+'">'+b.name.slice(0,2)+'</div>')+'</div>'
+          +'<div class="rb-info"><div class="rb-name">'+esc(b.name)+'</div><div class="rb-tier">'+esc(b.tier)+' · '+esc(b.priceRange)+'</div>'
+          +'<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:5px">'+reasons.map(r=>'<span class="etag etag-g" style="font-size:10px">✓ '+r+'</span>').join('')+'</div></div>'
+          +'<div class="rb-rank"><span class="rb-match">'+matchPct+'% match</span><span class="etag etag-o" style="font-size:10px">⭐ Preferred</span></div></div>';
+      }).join('')+'</div>'
+      +'<div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-4);margin-bottom:10px">Other Network Builders</div>'
+      +'<div style="display:flex;gap:8px;flex-wrap:wrap">'+standards.map(b=>'<span class="etag etag-dim">'+esc(b.name)+'</span>').join('')+'</div>'
+      +'</div>';
+  }
+}
+
+// ─── PACKAGE BUILDER (right panel) ───────────────────────────────────────────
+function renderEpRight(){
+  var right=document.getElementById('epRight');
+  var p=NHA.currentEstate;
+  if(!right||!p)return;
+  var frontages=[10,12.5,14,16];
+  var premDesigns=DESIGNS.filter(d=>BUILDERS.find(b=>b.name===d.builder&&b.tierGroup==='premium')).slice(0,8);
+  right.innerHTML='<div class="pkg-right">'
+    +'<div class="pkg-right-title">Build Your Package</div>'
+    +'<div style="font-size:13px;color:var(--text-3);margin-bottom:18px">Select a lot width and home design to see your complete package.</div>'
+    +'<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-4);margin-bottom:8px">Lot Width</div>'
+    +'<div class="pkg-pills" id="pkgLotPills">'
+    +frontages.map(f=>'<button class="pkg-pill" data-f="'+f+'" onclick="selectLot('+f+')">'+f+'m</button>').join('')
+    +'</div>'
+    +'<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-4);margin-bottom:8px;margin-top:8px">Home Design</div>'
+    +'<div class="pkg-pills" id="pkgDesignPills">'
+    +premDesigns.map(d=>'<button class="pkg-pill" data-d="'+esc(d.name)+'" style="font-size:11px" onclick="selectDesign(\''+d.name.replace(/'/g,"\\'")+'\')">'+esc(d.name.replace('FRD ','').replace('Oxford Green ','')).substring(0,11)+'</button>').join('')
+    +'</div>'
+    +'<div id="pkgRows" style="margin-bottom:10px"><div style="text-align:center;padding:20px;color:var(--text-3);font-size:13px">Select a lot and design to build your package</div></div>'
+    +'<div style="text-align:center;margin-bottom:16px"><div class="pkg-total-num" id="pkgTotalNum">—</div><div class="pkg-weekly" id="pkgWeeklyNum"></div></div>'
+    +'<div class="inv-reveal" id="pkgInvestReveal">'
+    +'<div style="font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-4);margin-bottom:10px">Investment Intelligence</div>'
+    +'<div id="pkgInvestRows"></div>'
+    +'</div>'
+    +'<div id="ctxCta" style="margin-top:8px"></div>'
+    +'</div>';
+}
+function selectLot(f){
+  NHA.pkgLot=f;
+  document.querySelectorAll('#pkgLotPills .pkg-pill').forEach(b=>b.classList.toggle('on',parseFloat(b.getAttribute('data-f'))===f));
+  updatePkg();if(NHA.pkgDesign)showPkgInvest();
+}
+function selectDesign(name){
+  NHA.pkgDesign=DESIGNS.find(d=>d.name===name)||null;
+  document.querySelectorAll('#pkgDesignPills .pkg-pill').forEach(b=>b.classList.toggle('on',b.getAttribute('data-d')===name));
+  updatePkg();if(NHA.pkgLot)showPkgInvest();
+}
+function updatePkg(){
+  var p=NHA.currentEstate;
+  var rows=document.getElementById('pkgRows');
+  var totalEl=document.getElementById('pkgTotalNum');
+  var weekEl=document.getElementById('pkgWeeklyNum');
+  if(!rows||!p)return;
+  var land=p.minPrice>0?p.minPrice:0;
+  var build=NHA.pkgDesign?parseInt((NHA.pkgDesign.price||'0').replace(/[^0-9]/g,'0')):0;
+  var site=8500,drive=4200,landscape=6000,fence=3800;
+  if(!NHA.pkgLot&&!NHA.pkgDesign){rows.innerHTML='<div style="text-align:center;padding:16px;color:var(--text-3);font-size:13px">Select lot and design above</div>';if(totalEl)totalEl.textContent='—';if(weekEl)weekEl.textContent='';return;}
+  var rl=[{l:'Land'+(NHA.pkgLot?' ('+NHA.pkgLot+'m frontage)':''),v:land>0?fmt(land):'TBA'},{l:'Build'+(NHA.pkgDesign?' — '+NHA.pkgDesign.name:''),v:build>0?fmt(build):'Select design'},{l:'Site Costs',v:fmt(site)},{l:'Driveway',v:fmt(drive)},{l:'Landscaping',v:fmt(landscape)},{l:'Fencing',v:fmt(fence)}];
+  rows.innerHTML='<div class="pkg-breakdown-rows">'+rl.map(r=>'<div class="pkgr"><span class="pkgr-label">'+r.l+'</span><span class="pkgr-val">'+r.v+'</span></div>').join('')+'</div>';
+  var total=land+build+site+drive+landscape+fence;
+  if(total>site+drive+landscape+fence){
+    if(totalEl)totalEl.textContent=fmt(total);
+    var wk=Math.round(total*0.95*0.063/52);
+    if(weekEl)weekEl.textContent='Est. $'+wk+'/week · 6.1% · 30yr · 10% deposit';
+    // Save package
+    var pkgRecord={estate:p.name,design:NHA.pkgDesign?NHA.pkgDesign.name:'',total:total,savedAt:Date.now()};
+    var idx=NHA.packages.findIndex(x=>x.estate===p.name&&x.design===pkgRecord.design);
+    if(idx>-1)NHA.packages[idx]=pkgRecord;else NHA.packages.push(pkgRecord);
+    if(NHA.journeyStage<2)NHA.journeyStage=2;
+    track('📦','Built package for '+p.name+' — '+fmt(total),'rgba(5,150,105,0.08)');
+    save();updateNav();
+  }
+  updateCtxCta();
+}
+function showPkgInvest(){
+  var ir=document.getElementById('pkgInvestReveal');
+  if(!ir||ir.classList.contains('shown'))return;
+  ir.classList.add('shown');
+  var p=NHA.currentEstate;
+  var land=p.minPrice>0?p.minPrice:425000;
+  var build=NHA.pkgDesign?parseInt((NHA.pkgDesign.price||'0').replace(/[^0-9]/g,'0')):264500;
+  var total=land+build+22500;
+  var rent=Math.round(total*0.04/52);
+  var iRows=document.getElementById('pkgInvestRows');
+  if(iRows)iRows.innerHTML=[
+    {l:'Weekly Repayment',v:'$'+Math.round(total*0.95*0.063/52)+'/wk',pos:false},
+    {l:'Rental Appraisal',v:'$'+rent+'/wk (est.)',pos:true},
+    {l:'Gross Yield',v:((rent*52/total)*100).toFixed(1)+'%',pos:true},
+    {l:'Deposit (10%)',v:fmt(Math.round(total*0.1)),pos:false}
+  ].map(r=>'<div class="inv-row"><span class="inv-label">'+r.l+'</span><span class="inv-val'+(r.pos?' inv-pos':'')+'">'+r.v+'</span></div>').join('');
+}
+function updateCtxCta(){
+  var el=document.getElementById('ctxCta');
+  if(!el)return;
+  var stage=NHA.journeyStage;
+  var p=NHA.currentEstate;
+  if(stage>=2){
+    el.innerHTML='<div class="ctx-cta ctx-cta-pkg"><div style="font-size:15px;font-weight:800;color:var(--primary);margin-bottom:4px">Your package is ready.</div><div style="font-size:12px;color:var(--text-3);margin-bottom:14px">A consultant with this package detail will call you back within the hour.</div><button class="btn btn-warm" style="width:100%;margin-bottom:8px" onclick="openChatP()">Review My Package with a Consultant →</button><button class="btn btn-outline btn-sm" style="width:100%" onclick="openDashboard();closeDashboard()">Save to My Opportunities</button></div>';
+  }else if(stage>=1){
+    el.innerHTML='<div class="ctx-cta ctx-cta-saved"><div style="font-size:15px;font-weight:800;color:var(--accent);margin-bottom:4px">Estate saved. Now build your package.</div><div style="font-size:12px;color:var(--text-3);margin-bottom:12px">Select a lot width and design above to see the complete cost breakdown.</div></div>';
+  }else{
+    el.innerHTML='<div class="ctx-cta ctx-cta-browse"><div style="font-size:14px;font-weight:700;color:var(--primary);margin-bottom:4px">Like what you see?</div><div style="font-size:12px;color:var(--text-3);margin-bottom:12px">Save this estate to your opportunities and we\'ll notify you when new lots are released.</div><button class="btn btn-primary btn-sm" style="width:100%" onclick="toggleSavePanel()">❤️ Save This Estate</button></div>';
+  }
+}
+function openChatP(){var c=document.getElementById('chatPanel');if(c){c.style.display='block';var m=document.getElementById('cpMsg');if(m&&NHA.currentEstate)m.value='Interested in '+NHA.currentEstate.name;}}
+
+// ─── NAV & UI ─────────────────────────────────────────────────────────────────
+function updateNav(){
+  var b=document.querySelector('.nav-dash-btn');
+  if(b){var n=NHA.saved.length;b.innerHTML='❤️ My Opportunities'+(n>0?'<span style="background:var(--warm);color:#fff;border-radius:10px;padding:1px 7px;font-size:11px;margin-left:4px">'+n+'</span>':'');}
+  updateCmpBar();
+}
+function toggleNav(){var l=document.querySelector('.nav-inner');/* Mobile nav toggle */}
+
+// ─── DEV FORM ─────────────────────────────────────────────────────────────────
+function submitDevForm(e){
+  e.preventDefault();
+  document.getElementById('devForm').style.display='none';
+  document.getElementById('devOk').style.display='block';
+  fetch('https://formsubmit.co/ajax/louka@projxaustralia.com.au',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'\uD83C\uDFD7\uFE0F NHA Dev: '+document.getElementById('devC').value,Name:document.getElementById('devN').value,Company:document.getElementById('devC').value,Email:document.getElementById('devE').value,Phone:document.getElementById('devP').value,Site:document.getElementById('devS').value,Source:'NHA V4 Dev Form'})}).catch(()=>{});
+}
+
+// ─── CHAT ─────────────────────────────────────────────────────────────────────
+function toggleChat(){var p=document.getElementById('chatPanel');var b=document.querySelector('.chat-dot-badge');if(p){p.style.display=p.style.display==='none'?'block':'none';if(b)b.style.display='none';}}
+function submitChat(){
+  var name=document.getElementById('cpName').value.trim();
+  var phone=document.getElementById('cpPhone').value.trim();
+  var msg=document.getElementById('cpMsg').value.trim();
+  if(!name||!phone)return;
+  document.getElementById('cpForm').innerHTML='<div style="text-align:center;padding:12px;font-size:12px;color:var(--text-2)">✅ Thanks '+esc(name.split(' ')[0])+'! We\'ll call back within the hour.</div>';
+  if(NHA.journeyStage<4)NHA.journeyStage=4;save();updateNav();
+  track('📞','Requested call back','rgba(5,150,105,0.08)');
+  fetch('https://formsubmit.co/ajax/louka@projxaustralia.com.au',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'NHA V4 Lead: '+name,Name:name,Phone:phone,Message:msg||'-',Source:'NHA V4 Chat'})}).catch(()=>{});
+}
+
+// ─── OBSERVER ─────────────────────────────────────────────────────────────────
+function initObs(){
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:0.05,rootMargin:'0px 0px 60px 0px'});
+  document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
+  requestAnimationFrame(()=>{document.querySelectorAll('.fu').forEach(el=>{var r=el.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0)el.classList.add('vis');});});
+}
+// Alias .vis to .visible for fade-up elements
+document.addEventListener('DOMContentLoaded',function(){var style=document.createElement('style');style.textContent='.fu.vis{opacity:1;transform:translateY(0)}';document.head.appendChild(style);});
+</script>
+</body>
+</html>
