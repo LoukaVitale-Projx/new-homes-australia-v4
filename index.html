@@ -322,7 +322,7 @@ footer{background:var(--primary);padding:52px 0 28px}
 <!-- NAV -->
 <nav id="nav">
  <div class="nav-inner">
-  <a href="#" class="nav-brand"><span class="nav-brand-name">New Homes Australia</span><span class="nav-brand-by">Powered by ProjX</span></a>
+  <a href="#" class="nav-brand"><span class="nav-brand-name">New Homes Australia</span><span class="nav-brand-by" style="display:flex;align-items:center;gap:4px">Powered by <img src="img/projx-logo.png" alt="ProjX" style="height:10px;opacity:0.6;vertical-align:middle"></span></a>
   <a href="#estates" class="nav-link">Estates</a>
   <a href="#packages" class="nav-link">Build Package</a>
   <a href="#how-it-works" class="nav-link">How It Works</a>
@@ -336,7 +336,7 @@ footer{background:var(--primary);padding:52px 0 28px}
 
 <!-- HERO -->
 <section id="hero">
- <div class="hero-bg"><img src="img/woodchester.jpg" alt="New home in Queensland"></div>
+ <div class="hero-bg"><img src="img/woodchester.jpg" alt="New home in Queensland" loading="eager" fetchpriority="high"></div>
  <div class="hero-content">
   <div>
    <div class="hero-tag"><span class="hero-tag-dot"></span><span class="hero-tag-text">Australia's New Homes Platform · Exclusive SEQ Access</span></div>
@@ -354,7 +354,7 @@ footer{background:var(--primary);padding:52px 0 28px}
   </div>
   <div style="position:relative">
    <div class="hero-card">
-    <img src="img/oakland.jpg" alt="Oakland Estate" class="hero-card-img">
+    <img src="img/oakland.jpg" alt="Oakland Estate" class="hero-card-img" loading="eager">
     <div class="hero-card-body">
      <div style="display:flex;gap:6px;margin-bottom:10px"><span class="etag etag-g">🟢 Title Ready</span><span class="etag etag-o">🚀 Fast Mover</span></div>
      <div class="hero-card-nm">Oakland Estate</div>
@@ -466,7 +466,7 @@ footer{background:var(--primary);padding:52px 0 28px}
     <div style="font-size:14px;color:var(--text-3)">Our consultants know your saved estates and package before you call. No cold pitch. Just helpful guidance.</div>
    </div>
    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;flex-shrink:0">
-    <div style="display:flex">${['M','S','D'].map(l=>`<div style="width:40px;height:40px;border-radius:50%;background:var(--primary-mid);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff;border:3px solid var(--white);margin-left:-8px;first:margin-left:0">${l}</div>`).join('')}</div>
+    <div style="display:flex"><div style="width:40px;height:40px;border-radius:50%;background:var(--primary-mid);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff;border:3px solid var(--white)">M</div><div style="width:40px;height:40px;border-radius:50%;background:var(--primary-mid);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff;border:3px solid var(--white);margin-left:-8px">S</div><div style="width:40px;height:40px;border-radius:50%;background:var(--primary-mid);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff;border:3px solid var(--white);margin-left:-8px">D</div></div>
     <button class="btn btn-primary" onclick="document.getElementById('chatPanel').style.display='block'">Book a Strategy Session →</button>
    </div>
   </div>
@@ -504,7 +504,7 @@ footer{background:var(--primary);padding:52px 0 28px}
 <footer>
  <div class="fi-inner">
   <div class="f-brand">New Homes Australia</div>
-  <div class="f-by">Powered by ProjX Group Australia</div>
+  <div class="f-by" style="display:flex;align-items:center;gap:6px">Powered by <img src="img/projx-logo.png" alt="ProjX Group Australia" style="height:14px;opacity:0.5;filter:brightness(0) invert(1)"></div>
   <div class="f-links"><a href="#estates">Estates</a><a href="#packages">Build Package</a><a href="#how-it-works">How It Works</a><a href="#talk-to-us">Talk to Us</a><a href="#developer-access">Developers</a><a href="mailto:info@projxaustralia.com.au">Contact</a></div>
   <div class="f-bottom"><div>Prices indicative only. Images for illustration. Operated by ProjX Group Australia Pty Ltd. © 2026</div><div>info@projxaustralia.com.au</div></div>
  </div>
@@ -556,7 +556,7 @@ footer{background:var(--primary);padding:52px 0 28px}
  <div class="ep-grid">
   <!-- LEFT -->
   <div class="ep-left">
-   <img id="epImg" src="" alt="" class="ep-hero-img">
+   <img id="epImg" src="" alt="" class="ep-hero-img" loading="lazy">
    <div class="ep-tabs" id="epTabs">
     <button class="ep-tab active" onclick="switchEpTab('overview',this)">Overview</button>
     <button class="ep-tab" onclick="switchEpTab('lifestyle',this)">Lifestyle</button>
@@ -624,7 +624,7 @@ fetch('./data.json').then(r=>r.json()).then(d=>{
   PROJECTS=d.PROJECTS||[];BUILDERS=d.BUILDERS||[];DESIGNS=d.DESIGNS||[];BUILDER_LOGOS=d.BUILDER_LOGOS||{};
   if(DESIGNS.length)CHEAPEST_BUILD=Math.min(...DESIGNS.map(d=>{var n=parseInt((d.price||'0').replace(/[^0-9]/g,''));return isNaN(n)?999999:n;}));
   init();
-}).catch(()=>init());
+}).catch(function(err){ console.error('[NHA V4] Data load failed:', err); PROJECTS=[]; BUILDERS=[]; DESIGNS=[]; BUILDER_LOGOS={}; init(); });
 
 function init(){
   populateRegions();
